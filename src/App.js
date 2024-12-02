@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import Home from './components/pages/Home/Home';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import ServicesPage from './components/pages/Services/ServicePage';
+
+function AppContent() {
+  const location = useLocation();
+  const isServicesPage = location.pathname.startsWith('/services');
+
+  return (
+    <div className={` ${isServicesPage ? 'bg-white':'bg-[#F8F0FD]'}`}>
+      <div className='pt-9'>
+        <Header isServices={isServicesPage} />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:index" element={<ServicesPage />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
