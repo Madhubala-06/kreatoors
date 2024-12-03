@@ -3,9 +3,9 @@ import RightArrow from '../../../assets/images/Arrow 1.svg'
 
 const ComingSoonSection = () => {
   return (
-    <div className="w-full bg-cta-gradient py-16 px-4 md:px-8 rounded-t-[50px]">
+    <div className="w-full bg-cta-gradient py-20  px-4 md:px-8 rounded-t-[50px]">
       <div className="max-w-6xl mx-auto">
-        <div className="relative bg-primary-gradient rounded-3xl p-8 md:p-12 mb-16 flex md:gap-1">
+        <div className="relative bg-primary-gradient rounded-3xl p-8 md:p-12 flex md:gap-1">
           <div className="max-w-2xl">
             <h2 className="text-2xl md:text-4xl font-medium text-white mb-4 max-w-2xl">
               Coming Soon: The Future of

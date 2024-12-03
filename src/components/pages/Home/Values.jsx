@@ -69,7 +69,7 @@ const ValueStats = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#FFFFFF]">
+    <section ref={sectionRef} className="w-full bg-blue-custom-400">
       <div className="max-w-6xl mx-auto px-5 py-16 sm:py-20 md:py-28">
         <div className="text-center mb-8 sm:mb-12">
 

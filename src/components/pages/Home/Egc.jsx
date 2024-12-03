@@ -22,12 +22,12 @@ const EGCSection = () => {
         }
     ];
     return (
-        <div className="bg-[#F5F4FE]">
+        <div className="bg-white ">
 
 
         
-        <div className="max-w-6xl mx-auto px-4 py-16 ">
-            <div className="text-center mb-16">
+        <div className="max-w-6xl mx-auto px-4  py-20 ">
+            <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-6">
                     What is <em className="font-fairDisplay font-semibold">EGC</em>?
                 </h2>
@@ -36,11 +36,11 @@ const EGCSection = () => {
                     <span>Why It Matters</span>
                 </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8  py-5">
                 {features.map((feature, index) => (
                     <div
                         key={index}
-                        className="bg-white p-4  pb-5 rounded-lg rounded-tr-[40px]   shadow-sm  transition-shadow"
+                        className=" bg-blue-custom-400 px-4 py-10 rounded-lg rounded-tr-[40px]   shadow-sm  transition-shadow"
                     >
                         <div className="w-12 h-12 bg-primary-gradient rounded-full flex items-center justify-center text-white mb-6">
                             <img src={feature.icon} className=' w-6 h-6' ></img>

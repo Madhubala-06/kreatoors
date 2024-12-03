@@ -12,8 +12,9 @@ export default function(){
         <HeroSection />
         <ValueStats />
         <EGCSection />
-        <BrandSolutionsLanding />
         <AudienceSection />
+
+        <BrandSolutionsLanding />
         <ComingSoonSection/>
         </>
     )

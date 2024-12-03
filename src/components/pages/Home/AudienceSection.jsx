@@ -82,8 +82,8 @@ const AudienceSection = () => {
   };
 
   return (
-    <div className="w-full bg-[#F9F7FD]">
-      <div className="max-w-6xl mx-auto px-4 py-5 md:py-14">
+    <div className="w-full bg-[#F9F7FD] py-20 ">
+      <div className="max-w-6xl mx-auto px-4  ">
         <h1 className="text-3xl sm:text-4xl md:text-5xl text-center mb-8">
           Who Do We <span className="font-fairDisplay font-semibold">Empower?</span>
         </h1>

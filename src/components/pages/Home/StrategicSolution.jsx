@@ -63,7 +63,7 @@ const BrandSolutionsLanding = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white p-8">
+    <div className=" bg-white py-20 px-5 md:px-0 ">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl max-w-xl mx-auto mb-4">
