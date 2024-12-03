@@ -21,10 +21,10 @@ const AnimatedValue = ({ value, isVisible }) => {
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
-    if (!isVisible) return; 
+    if (!isVisible) return;
 
     let start = 0;
-    const duration = 2000; 
+    const duration = 2000;
     const stepTime = duration / value;
 
     const timer = setInterval(() => {
@@ -37,13 +37,13 @@ const AnimatedValue = ({ value, isVisible }) => {
     }, stepTime);
 
     return () => clearInterval(timer);
-  }, [value, isVisible]); 
+  }, [value, isVisible]);
 
   return <>{displayValue}%</>;
 };
 
 const ValueStats = () => {
-  const { title, subtitle, stats } = valueStatsContent;
+  const { stats } = valueStatsContent;
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -54,16 +54,16 @@ const ValueStats = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 } 
+      { threshold: 0.5 }
     );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current); 
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current); 
+        observer.unobserve(sectionRef.current);
       }
     };
   }, []);
@@ -72,12 +72,21 @@ const ValueStats = () => {
     <section ref={sectionRef} className="w-full bg-[#FFFFFF]">
       <div className="max-w-6xl mx-auto px-5 py-16 sm:py-20 md:py-28">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 leading-tight">
-          92% of <span className=" font-fairDisplay  font-semibold">Consumers Trust </span>recommendations from individuals over brands.
-          </h2>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-normal leading-tight">
-            {subtitle}
-          </h2>
+
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
+            <span className="inline-block">
+              92% of{" "}
+              <span className="font-fairDisplay italic font-semibold pr-3">
+                Consumers Trust
+              </span>
+              recommendations
+            </span>
+            <span className="block mt-2 sm:mt-4 md:mt-6">
+              from individuals over brands.
+            </span>
+          </h1>
+
         </div>
 
         <div className="bg-primary-gradient rounded-2xl sm:rounded-3xl p-6 sm:p-8 mt-6 sm:mt-8">

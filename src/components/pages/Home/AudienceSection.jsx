@@ -108,7 +108,6 @@ const AudienceSection = () => {
           ))}
         </div>
 
-        {/* Content Section with fade transition */}
         <div className="relative">
           <div
             className={`bg-white p-10 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 ease-in-out transform ${

@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       <section className="pt-24 pb-10 px-4 bg-[#F8F0FD]">
-        <div className="container mx-auto text-center max-w-5xl py-10">
+        <div className="container mx-auto text-center  py-10">
           <h1 className="text-4xl md:text-6xl mb-6">
             Unleash Your Team's
             <span className="font-fairDisplay font-semibold block mt-5">
