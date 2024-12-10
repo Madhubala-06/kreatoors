@@ -19,7 +19,7 @@
 }
 
 .animate-marquee-right {
-    animation: marqueeRight 50s linear infinite;
+    animation: marqueeRight 80s linear infinite;
 }
 
 .animate-marquee-left {
