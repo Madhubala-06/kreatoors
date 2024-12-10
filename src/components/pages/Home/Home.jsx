@@ -1,4 +1,4 @@
-
+import { useState, useRef } from 'react'
 import ValueStats from './Values'
 import EGCSection from './Egc'
 import HeroSection from './HeroSection'
@@ -6,16 +6,28 @@ import BrandSolutionsLanding from './StrategicSolution'
 import AudienceSection from './AudienceSection'
 import ComingSoonSection from './Commingsoon'
 
-export default function(){
-    return(
-        <>
-        <HeroSection />
-        <ValueStats />
-        <EGCSection />
-        <AudienceSection />
+export default function Home() {
+  const brandSolutionsRef = useRef(null);
 
-        <BrandSolutionsLanding />
-        <ComingSoonSection/>
-        </>
-    )
+  const handleCTAClick = () => {
+    brandSolutionsRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div>
+      <>
+        <HeroSection />
+        <EGCSection />
+        <ValueStats />
+        
+        <AudienceSection onCTAClick={handleCTAClick} />
+        
+        <div ref={brandSolutionsRef}>
+          <BrandSolutionsLanding />
+        </div>
+        
+        <ComingSoonSection />
+      </>
+    </div>
+  );
 }

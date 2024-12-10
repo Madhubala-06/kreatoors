@@ -2,7 +2,7 @@
 import Button from "./Button";
 import logo from '../../assets/images/logo-kreatoors-spin.png'
 import flower from '../../assets/images/flower-spin.png'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 const KrLogoWithFlower = () => {
@@ -11,7 +11,7 @@ const KrLogoWithFlower = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsRotating(false);
-    }, 1000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -28,10 +28,12 @@ const KrLogoWithFlower = () => {
         alt="Flower"
         style={{
           backfaceVisibility: 'hidden',
-          transform: isRotating ? 'rotate(360deg)' : 'rotate(0deg)',
-          transition: 'transform 10s linear',
+          transform: isRotating ? 'rotate(0deg)' : 'rotate(360deg)',
+          transition: isRotating
+            ? 'transform 0.2s ease-in-out'
+            : 'transform 5s linear',
           willChange: 'transform',
-          imageRendering: 'crisp-edges'
+          imageRendering: 'crisp-edges',
         }}
         className={`
           absolute 
@@ -46,7 +48,7 @@ const KrLogoWithFlower = () => {
   );
 };
 
-export default function Header({isServices}) {
+export default function Header({ isServices }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -58,6 +60,7 @@ export default function Header({isServices}) {
     { name: 'Services', path: '/services/1' },
     { name: 'About us', path: '/aboutus' },
     { name: 'AI platforms', path: '/aiplatforms' },
+    { name: 'Blogs', path: '/blogs' },
     { name: 'Contact us', path: '/contactus' },
   ];
 
@@ -70,22 +73,30 @@ export default function Header({isServices}) {
 
             <ul className="hidden lg:flex items-center space-x-8 font-normal text-lg">
               {menuItems.map((item) => (
+               
                 <li key={item.path}>
-                  <Link to={item.path} className="text-sub-gray hover:text-[#6B5B95]">
+                  <NavLink to={item.path} className={({ isActive }) =>
+
+                  
+                    isActive  || item.path === '/services/1' && 
+                    window.location.pathname.startsWith('/services')
+                      ? 'text-transparent bg-clip-text bg-primary-gradient font-medium'
+                      : 'text-sub-gray hover:text-[#6B5B95]'
+                  }>
                     {item.name}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
           </div>
           <div className="hidden lg:block">
             <Button className="bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]">
-              Book a Discovery Call
+              Book a FREE Discovery Call
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <button 
+          <button
             className="lg:hidden p-2"
             onClick={toggleMobileMenu}
           >
@@ -101,17 +112,17 @@ export default function Header({isServices}) {
               <ul className="py-2  ">
                 {menuItems.map((item) => (
                   <li key={item.path}>
-                    <Link 
-                      to={item.path} 
+                    <NavLink
+                      to={item.path}
                       className="block px-4 py-3 text-custom-blue-700 hover:bg-custom-blue-400 hover:text-white"
                       onClick={toggleMobileMenu}
                     >
                       {item.name}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
                 <li className="px-4 py-3">
-                  <Button 
+                  <Button
                     className="w-full bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]"
                     onClick={toggleMobileMenu}
                   >
