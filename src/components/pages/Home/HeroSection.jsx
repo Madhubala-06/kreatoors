@@ -4,8 +4,8 @@ import StyleWrapper from "./ImageAnimation";
 export default function Hero() {
   return (
     <>
-      <section className="py-16 px-4 bg-blue-to-white-gradient">
-        <div className="container mx-auto text-center  py-10">
+      <section className="py-16  pt-44 px-4 bg-blue-to-white-gradient ">
+        <div className="container mx-auto text-center  py-10 ">
           <h2 className="text-4xl md:text-5xl max-w-2xl mb-6 mx-auto">
             Turn Employee Stories<br />
             <span className="mt-4 block">Into <span className="font-playfair font-semibold italic">Brand Power</span></span>

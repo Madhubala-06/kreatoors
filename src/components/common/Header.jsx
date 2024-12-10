@@ -65,7 +65,7 @@ export default function Header({ isServices }) {
   ];
 
   return (
-    <header className={`top-0 left-0 right-0 ${isServices ? 'bg-blue-custom-400' : "bg-white"} z-50 max-w-6xl rounded-full mx-5 md:mx-5 lg:m-auto`}>
+    <header className={` top-10  absolute left-0 right-0 ${isServices ? 'bg-blue-custom-400' : "bg-white"} z-50 max-w-6xl rounded-full mx-5 md:mx-5 lg:m-auto`}>
       <div className="container mx-auto px-6">
         <nav className="flex items-center justify-between py-2 md:py-5">
           <div className="flex items-center space-x-12">
