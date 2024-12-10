@@ -14,7 +14,7 @@ const MissionFounderSection = () => {
       </h1>
 
       <div className="space-y-12">
-        <div className="grid grid-cols-[200px,1fr] gap-8">
+        <div className="grid md:grid-cols-[200px,1fr] gap-8">
           <h2 className="text-xl font-semibold">The AI Paradox</h2>
           <div className="space-y-4">
             <p className=" text-sub-gray leading-relaxed">
@@ -26,7 +26,7 @@ const MissionFounderSection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-[200px,1fr] gap-8">
+        <div className="grid  md:grid-cols-[200px,1fr] gap-8">
           <h2 className="text-xl font-semibold">Our Mission</h2>
           <p className=" text-sub-gray leading-relaxed">
             We help organizations harness authenticity at scale, empowering professionals to build distinctive voices that AI cannot replicate. The future of brand building is less about competing with AI and more about amplifying what makes us uniquely human. This realization sparked Kreators.
