@@ -128,12 +128,13 @@ const ServiceSection = ({
     );
 
 
+    
     const OtherServices = () => {
         const { index } = useParams();
         const currentIndex = parseInt(index);
-
-        const [scrollPosition, setScrollPosition] = useState(0);
-
+        const scrollContainerRef = useRef(null);
+        const [isScrolling, setIsScrolling] = useState(false);
+    
         const services = [
             {
                 id: 1,
@@ -166,28 +167,42 @@ const ServiceSection = ({
                 link: "/services/5"
             }
         ];
-
+    
         const otherServices = services.filter(service => service.id !== currentIndex);
-
-
-
+    
+        useEffect(() => {
+            const container = scrollContainerRef.current;
+            
+            const checkScroll = () => {
+                if (container) {
+                    setIsScrolling(container.scrollLeft > 0);
+                }
+            };
+    
+            container?.addEventListener('scroll', checkScroll);
+            return () => container?.removeEventListener('scroll', checkScroll);
+        }, []);
+    
         return (
-            <div className="w-full py-16  bg-blue-custom-400">
-                <div className="mx-auto px-4  md:ml-48">
-                    <h2 className="text-4xl mb-12">
+            <div className="w-full py-16 bg-blue-custom-400">
+                <div className={`mx-auto px-4  `}>
+                    <h2 className="text-4xl mb-12 md:ml-48">
                         Other <span className="font-playfair italic font-semibold">Services</span>
                     </h2>
-
+    
                     {/* Services Container */}
                     <div className="relative">
-                        <div className="flex gap-6 overflow-x-auto hide-scrollbar">
+                        <div 
+                            ref={scrollContainerRef}
+                            className={`flex gap-6 overflow-x-auto hide-scrollbar transition-all duration-300 ${isScrolling ? 'md:ml-0' : 'md:ml-48  '}`}
+                        >
                             {otherServices.map((service) => (
                                 <Link
                                     key={service.id}
                                     to={service.link}
                                     className="flex-none w-[460px] group"
                                 >
-                                    <div className=" overflow-hidden">
+                                    <div className="overflow-hidden">
                                         <div className="relative h-[300px] overflow-hidden">
                                             <img
                                                 src={service.image}
@@ -196,14 +211,10 @@ const ServiceSection = ({
                                             />
                                         </div>
                                         <div className="py-7">
-                                            <div className="flex  justify-between ">
-                                                <h3 className="text-xl font-normal ">{service.title}</h3>
-                                                <div className=" shadow-lg p-2 cursor-pointer rounded-full w-12 h-12 flex items-center justify-center "
-
-                                                >
-
-                                                    <ArrowUpRight className=' text-blue-custom-700 h-7 w-7' />
-
+                                            <div className="flex justify-between">
+                                                <h3 className="text-xl font-normal">{service.title}</h3>
+                                                <div className="shadow-lg p-2 cursor-pointer rounded-full w-12 h-12 flex items-center justify-center">
+                                                    <ArrowUpRight className="text-blue-custom-700 h-7 w-7" />
                                                 </div>
                                             </div>
                                         </div>
@@ -213,19 +224,20 @@ const ServiceSection = ({
                         </div>
                     </div>
                 </div>
-
+    
                 <style jsx>{`
-              .hide-scrollbar {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-              }
-              .hide-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            `}</style>
+                    .hide-scrollbar {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+                    .hide-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                `}</style>
             </div>
         );
     };
+    
 
 
 
