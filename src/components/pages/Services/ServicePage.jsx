@@ -12,7 +12,7 @@ import community_design_development from '../../../assets/images/strategic-solut
 const servicesData = {
   1: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight">
-      <span className="font-playfair italic font-semibold">
+      <span className="font-playfair italic ">
         Personal Branding &
       </span>
       <span className=" block mt-5">
@@ -75,7 +75,7 @@ const servicesData = {
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px]  leading-tight  text-white">
       Ready to Turn Your Expertise into
       <span className=" block mt-5">
-        Influence that  <span className="font-playfair italic font-semibold">
+        Influence that  <span className="font-playfair italic ">
           Opens Doors?
         </span>
       </span>
@@ -84,7 +84,7 @@ const servicesData = {
 
   2: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-      <span className="inline-block font-playfair italic font-semibold mr-2">
+      <span className="inline-block font-playfair italic  mr-2">
         Employee
       </span>
       <span> Content </span>
@@ -167,13 +167,13 @@ const servicesData = {
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight text-white">
 
 
-      Ready to Amplify Your <span className='font-playfair italic font-semibold'>Brand?</span>
+      Ready to Amplify Your <span className='font-playfair italic '>Brand?</span>
     </h1>,
   },
 
   3: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-      <span className="inline-block font-playfair italic font-semibold mr-2">
+      <span className="inline-block font-playfair italic  mr-2">
         Employer
       </span>
 
@@ -230,14 +230,14 @@ const servicesData = {
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight  text-white">
 
 Ready to Build a Stand-Out 
-<span className='font-playfair italic font-semibold block mt-3'>Employer Brand?</span>
+<span className='font-playfair italic  block mt-3'>Employer Brand?</span>
     </h1>,
   },
 
   4: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
       Internal
-      <span className="font-playfair italic font-semibold  pr-3 mt-4 block">
+      <span className="font-playfair italic   pr-3 mt-4 block">
         Communications
       </span>
 
@@ -300,14 +300,14 @@ Ready to Build a Stand-Out
     ctaDescription: "Let's create a personal brand strategy that sets you apart.",
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight text-white">
 
-Ready to Transform Your <span className='font-playfair italic font-semibold '>Internal <span className='block mt-3 font-playfair italic font-semibold'>Communications?</span> </span>
+Ready to Transform Your <span className='font-playfair italic  '>Internal <span className='block mt-3 font-playfair italic '>Communications?</span> </span>
     </h1>,
   }
   ,
 
   5: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-      <span className="font-playfair italic font-semibold  pr-3 mt-4 ">
+      <span className="font-playfair italic   pr-3 mt-4 ">
         Community
       </span>
       Design
@@ -376,7 +376,7 @@ Ready to Transform Your <span className='font-playfair italic font-semibold '>In
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight text-white">
 
 
-Ready to Maximise <span className='font-playfair italic font-semibold'>Community <span className=' block mt-3 font-playfair italic font-semibold'>Network Effects?</span></span> 
+Ready to Maximise <span className='font-playfair italic '>Community <span className=' block mt-3 font-playfair italic '>Network Effects?</span></span> 
 
     </h1>,
   }

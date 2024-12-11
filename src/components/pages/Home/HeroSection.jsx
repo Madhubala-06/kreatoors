@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="container mx-auto text-center  py-10 ">
           <h2 className="text-4xl md:text-5xl max-w-2xl mb-6 mx-auto">
             Turn Employee Stories<br />
-            <span className="mt-4 block">Into <span className="font-playfair font-semibold italic">Brand Power</span></span>
+            <span className="mt-4 block">Into <span className="font-playfair  italic">Brand Power</span></span>
           </h2>
 
           <p className="text-lg md:text-xl text-sub-gray mb-8 max-w-4xl mt-7 mx-auto leading-8">

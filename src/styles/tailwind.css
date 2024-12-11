@@ -6,6 +6,8 @@
 .font-playfair {
     font-family: 'Playfair Display';
     font-style: italic;
+    font-weight: 500;
+
 }
 
 @keyframes marqueeRight {
@@ -125,3 +127,5 @@
         @apply opacity-100 translate-y-0;
     }
 }
+
+

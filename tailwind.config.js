@@ -54,6 +54,7 @@ module.exports = {
         'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
         'fade-in-down': 'fade-in-down 1.2s cubic-bezier(0.33, 1, 0.68, 1) forwards',
       },
+      
     },
   },
   plugins: [],

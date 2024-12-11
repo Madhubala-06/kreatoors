@@ -187,7 +187,7 @@ const ServiceSection = ({
             <div className="w-full py-16 bg-blue-custom-400">
                 <div className={`mx-auto px-4  `}>
                     <h2 className="text-4xl mb-12 md:ml-48">
-                        Other <span className="font-playfair italic font-semibold">Services</span>
+                        Other <span className="font-playfair italic ">Services</span>
                     </h2>
     
                     {/* Services Container */}
@@ -280,7 +280,7 @@ const ServiceSection = ({
 
                     <div className="content">
                         <h2 className="text-3xl md:text-4xl text-center mb-12">
-                            <span className="font-playfair font-semibold">Impact</span> & ROI
+                            <span className="font-playfair ">Impact</span> & ROI
                         </h2>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

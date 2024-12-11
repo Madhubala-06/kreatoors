@@ -72,8 +72,8 @@ const BrandSolutionsLanding = () => {
           <h2 className="text-4xl md:text-5xl mb-6 mx-auto text-center">
             Services & Solutions To
             <span className="block mt-3">
-              <span className="font-playfair font-semibold italic">Amplify</span> Your
-              <span className="font-playfair font-semibold italic"> Brand</span> and Culture
+              <span className="font-playfair  italic">Amplify</span> Your
+              <span className="font-playfair  italic"> Brand</span> and Culture
             </span>
           </h2>
 

@@ -33,7 +33,7 @@ const EGCSection = () => {
 
                 <h2 className="text-4xl md:text-5xl max-w-5xl  mx-auto">
             What's 
-            <span className="font-playfair font-semibold italic ml-2">Employee Generated Content (EGC)?</span>
+            <span className="font-playfair  italic ml-2">Employee Generated Content (EGC)?</span>
           </h2>
 
             

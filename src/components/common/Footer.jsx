@@ -39,7 +39,7 @@ const Footer = () => {
 
             <h2 className="text-4xl md:text-4xl mb-6">
             Unleash Your Team's
-            <span className=" font-playfair font-semibold block mt-5">
+            <span className=" font-playfair  block mt-5">
               Storytelling Potential
             </span>
           </h2>

@@ -88,7 +88,7 @@ const AudienceSection = ({ onCTAClick }) => {
     <div className="w-full  bg-blue-custom-400 py-20 ">
       <div className="max-w-6xl mx-auto px-4  ">
         <h1 className="text-3xl sm:text-4xl md:text-5xl text-center ">
-          Who Do We <span className="font-playfair italic  font-semibold">Empower?</span>
+          Who Do We <span className="font-playfair italic  ">Empower?</span>
         </h1>
 
         <div className="flex flex-wrap justify-evenly   my-10 bg-white p-4 rounded-full">

@@ -81,7 +81,7 @@ const MissionFounderSection = () => {
             <div className="max-w-6xl mx-auto px-8 py-16">
       <h1 className="text-center mb-16">
         <span className="text-4xl ">Our </span>
-        <span className="text-4xl font-playfair italic  font-semibold">Story & Mission</span>
+        <span className="text-4xl font-playfair italic  ">Story & Mission</span>
       </h1>
 
       <div className="space-y-12">
@@ -111,7 +111,7 @@ const MissionFounderSection = () => {
             <div className=' bg-white '>
                 <div className='max-w-6xl mx-auto px-4 py-16 '>
                     <h1 className="text-center mb-16  ">
-                        <span className="text-4xl md:text-4xl font-playfair italic font-semibold">Founder</span>
+                        <span className="text-4xl md:text-4xl font-playfair italic ">Founder</span>
                         <span className="text-4xl md:text-4xl"> Story</span>
                     </h1>
 
@@ -138,7 +138,7 @@ const MissionFounderSection = () => {
             <section className="py-16 px-4 max-w-6xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-4xl  mb-6">
-          Meet Our <span className="text-4xl md:text-4xl font-playfair italic font-semibold">Team</span>
+          Meet Our <span className="text-4xl md:text-4xl font-playfair italic ">Team</span>
         </h2>
         <p className=" text-sub-gray max-w-2xl mx-auto">
           Are you interested in joining our team, becoming a partner, or joining our
@@ -186,7 +186,7 @@ const MissionFounderSection = () => {
     <section className="py-16 px-4  bg-primary-gradient">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl  text-white text-center mb-12">
-          Our <span className="md:text-4xl font-playfair italic font-semibold">Values</span>
+          Our <span className="md:text-4xl font-playfair italic ">Values</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">

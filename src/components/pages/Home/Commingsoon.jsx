@@ -14,7 +14,7 @@ const ComingSoonSection = () => {
 
             {/* <h2 className="text-4xl md:text-5xl max-w-2xl mb-6 mx-auto">
             Coming Soon: The Future of<br />
-            <span className="font-playfair font-semibold italic blo">Personal Branding</span>
+            <span className="font-playfair  italic blo">Personal Branding</span>
           </h2> */}
 
 

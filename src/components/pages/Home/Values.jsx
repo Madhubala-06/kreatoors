@@ -71,7 +71,7 @@ const useInView = () => {
 
 const ValueStats = () => {
   const [ref, isInView] = useInView();
-  const animatedValue = useCounter(92, 10000, isInView);
+  const animatedValue = useCounter(92, 3000, isInView);
 
   return (
     <section className="w-full bg-white py-16" ref={ref}>
