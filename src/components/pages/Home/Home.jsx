@@ -17,8 +17,9 @@ export default function Home() {
     <div>
       <>
         <HeroSection onCTAClick={handleCTAClick} />
-        <EGCSection onCTAClick={handleCTAClick}  />
         <ValueStats />
+        <EGCSection onCTAClick={handleCTAClick}  />
+      
         
         <AudienceSection onCTAClick={handleCTAClick} />
         

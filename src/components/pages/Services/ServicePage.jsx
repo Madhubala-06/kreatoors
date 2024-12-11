@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import personal_branding from '../../../assets/images/strategic-solution/personal branding.png';
+import personal_branding from '../../../assets/images/strategic-solution/personal branding.jpg'
 import employee_advocacy from '../../../assets/images/strategic-solution/employee_adocarcy.jpg'
 import ServiceSection from './ServiceSection';
 
-import employer_development from '../../../assets/images/strategic-solution/employer-brand-development.jpg'
+import employer_development from '../../../assets/images/strategic-solution/employer-brand-developmentemployer-brand-development.png'
 import internal_communication from '../../../assets/images/strategic-solution/internal-communications.png'
 import community_design_development from '../../../assets/images/strategic-solution/community-design-development.png'
 
