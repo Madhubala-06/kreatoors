@@ -19,13 +19,13 @@ export default function Home() {
         <HeroSection onCTAClick={handleCTAClick} />
         <ValueStats />
         <EGCSection onCTAClick={handleCTAClick}  />
-      
-        
-        <AudienceSection onCTAClick={handleCTAClick} />
-        
         <div ref={brandSolutionsRef}>
           <BrandSolutionsLanding />
         </div>
+        
+        <AudienceSection />
+        
+        
         
         <ComingSoonSection />
       </>

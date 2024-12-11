@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AudienceSection = ({ onCTAClick }) => {
+const AudienceSection = () => {
   const [activeTab, setActiveTab] = useState('Growth & Marketing Teams');
   const [isContentVisible, setIsContentVisible] = useState(true);
 
@@ -133,7 +133,7 @@ const AudienceSection = ({ onCTAClick }) => {
             </div>
 
             <button className="bg-primary-gradient text-sm md:text-lg text-white px-6 py-3 rounded-full transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105"
-              onClick={() => onCTAClick(activeTab)}
+             
 
             >
               {tabContent[activeTab].ctaText}
