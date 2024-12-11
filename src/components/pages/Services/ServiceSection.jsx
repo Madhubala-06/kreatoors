@@ -27,7 +27,11 @@ const ServiceSection = ({
     const [openSection, setOpenSection] = useState(coreServices[0]?.id || '');
     const [hasAnimated, setHasAnimated] = useState(false);
     // const [openSection, setOpenSection] = useState('');
+    const navigate = useNavigate();
 
+    const handleClick = () => {
+      navigate('/contactus');
+    }; 
     useEffect(() => {
         // Set hasAnimated to true after initial render
         const timer = setTimeout(() => {
@@ -39,6 +43,9 @@ const ServiceSection = ({
 
     // Hero Section
     const HeroSection = () => (
+
+
+        
         <section className="py-10 px-4 md:px-6 lg:px-8 ">
             <div className="container mx-auto max-w-6xl ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -117,7 +124,7 @@ const ServiceSection = ({
                                 </div>
                             ))}
                         </div>
-                        <button className="w-full py-3 px-6 bg-primary-gradient text-white rounded-full transition-all duration-300">
+                        <button onClick={handleClick} className="w-full py-3 px-6 bg-primary-gradient text-white rounded-full transition-all duration-300">
                             {buttontxt}
                         </button>
                     </div>
@@ -300,11 +307,11 @@ const ServiceSection = ({
                             ))}
                         </div>
 
-                        <div className=" mt-10 text-center">
+                        {/* <div className=" mt-10 text-center">
                             <button  className="px-8 py-3 bg-primary-gradient text-white rounded-full transition-all duration-300">
                                 Build Your Influence
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
