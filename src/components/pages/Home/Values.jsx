@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import { useNavigate } from "react-router-dom";
 const useCounter = (end, duration = 10000, shouldStart) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(0);
   const frameRef = useRef(0);
   const startTimeRef = useRef(0);
 
+
+
   useEffect(() => {
+
     if (!shouldStart) return;
 
     const animate = (timestamp) => {
@@ -70,6 +73,12 @@ const useInView = () => {
 };
 
 const ValueStats = () => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/contactus');
+  };  
   const [ref, isInView] = useInView();
   const animatedValue = useCounter(92, 3000, isInView);
 
@@ -92,7 +101,7 @@ const ValueStats = () => {
           </h1>
         </div>
         <div className="flex justify-center">
-          <button className="px-6 py-4 mt-10 rounded-full font-medium bg-white border border-border-gradient flex items-center justify-center space-x-2">
+          <button onClick={handleClick} className="px-6 py-4 mt-10 rounded-full font-medium bg-white border border-border-gradient flex items-center justify-center space-x-2">
             <span className="text-blue-custom-700 font-semibold">Learn More</span>
             <span className="inline-block transform group-hover:translate-x-1 transition-transform text-blue-custom-700">
               <svg

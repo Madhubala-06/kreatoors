@@ -193,7 +193,8 @@ const MissionFounderSection = () => {
           {values.slice(0, 3).map((value) => (
             <div
               key={value.id}
-              className=" bg-blue-custom-400 p-6 shadow-lg rounded-lg rounded-tr-[40px]"
+              className=" bg-blue-custom-400 p-6 shadow-lg rounded-lg rounded-tr-[40px]  transform transition-all duration-300 ease-in-out
+                     hover:scale-105 hover:shadow-xl"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12  bg-primary-gradient  rounded-full flex items-center justify-center">
@@ -215,7 +216,8 @@ const MissionFounderSection = () => {
           {values.slice(3).map((value) => (
             <div
               key={value.id}
-              className=" bg-blue-custom-400 rounded-lg rounded-tr-[40px] p-6 shadow-lg"
+              className=" bg-blue-custom-400 rounded-lg rounded-tr-[40px] p-6 shadow-lg  transform transition-all duration-300 ease-in-out
+                     hover:scale-105 hover:shadow-xl"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary-gradient rounded-full flex items-center justify-center">

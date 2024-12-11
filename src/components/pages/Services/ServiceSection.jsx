@@ -1,6 +1,6 @@
 import Button from '../../common/Button';
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link , useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, PlusIcon, MinusIcon, CheckIcon, ArrowUpRight } from 'lucide-react';
 
 import personal_branding from '../../../assets/images/strategic-solution/personal branding.png';
@@ -243,7 +243,7 @@ const ServiceSection = ({
 
     const ImpactItems = () => {
         const sectionRef = useRef(null);
-
+       
 
         useEffect(() => {
             const observer = new IntersectionObserver(
@@ -285,22 +285,23 @@ const ServiceSection = ({
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {impactItems.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="  bg-blue-custom-400 rounded-xl p-5 flex flex-col items-start space-y-4"
-                                >
-                                    <div className="w-8 h-8 bg-primary-gradient rounded-full flex items-center justify-center">
-                                        <CheckIcon className="w-5 h-5 text-white" />
-                                    </div>
-                                    <h4 className="text-gray-700 font-medium   max-w-52">
-                                        {item}
-                                    </h4>
-                                </div>
+                             <div
+                             key={index}
+                             className="bg-blue-custom-400 rounded-xl p-5 flex flex-col items-start space-y-4 transition-all duration-300 hover:bg-blue-custom-500 hover:scale-105 hover:shadow-lg"
+                           >
+                             <div className="w-8 h-8 bg-primary-gradient rounded-full flex items-center justify-center">
+                               <CheckIcon className="w-5 h-5 text-white" />
+                             </div>
+                             <h4 className="text-gray-700 font-medium max-w-52">
+                               {item}
+                             </h4>
+                           </div>
+                           
                             ))}
                         </div>
 
                         <div className=" mt-10 text-center">
-                            <button className="px-8 py-3 bg-primary-gradient text-white rounded-full transition-all duration-300">
+                            <button  className="px-8 py-3 bg-primary-gradient text-white rounded-full transition-all duration-300">
                                 Build Your Influence
                             </button>
                         </div>
@@ -317,6 +318,11 @@ const ServiceSection = ({
         const [isVisible, setIsVisible] = useState(false);
         const sectionRef = useRef(null);
 
+        const navigate = useNavigate();
+
+        const handleClick = () => {
+          navigate('/contactus');
+        }; 
         useEffect(() => {
             const observer = new IntersectionObserver(
                 ([entry]) => {
@@ -371,6 +377,7 @@ const ServiceSection = ({
                         </p>
 
                         <button
+                            onClick={handleClick}
                             className={`
                                 bg-white text-blue-custom-700 px-6 py-3.5 
                                 rounded-full font-semibold hover:bg-purple-50 

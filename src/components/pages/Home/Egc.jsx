@@ -3,7 +3,7 @@ import fluent_arrow from '../../../assets/images/fluent_arrow-growth-24-filled.p
 import fluent_people from '../../../assets/images/fluent_person-voice-24-filled.png'
 import hand_shake from '../../../assets/images/streamline_business-handshake-solid.png'
 
-const EGCSection = () => {
+const EGCSection = ({ onCTAClick }) => {
     const features = [
         {
             title: "Brand Stories, Told by Its Heroes",
@@ -53,7 +53,7 @@ const EGCSection = () => {
                 ))}
             </div>
 
-            <button className="flex mx-auto items-center justify-center mt-10 px-6 py-4 rounded-full font-medium transition-all duration-300 bg-primary-gradient text-white">
+            <button onClick={onCTAClick} className="flex mx-auto items-center justify-center mt-10 px-6 py-4 rounded-full font-medium transition-all duration-300 bg-primary-gradient text-white">
   <span className="mr-2">Explore EGC Now</span>
   <svg
     xmlns="http://www.w3.org/2000/svg"
