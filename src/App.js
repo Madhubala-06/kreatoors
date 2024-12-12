@@ -4,6 +4,7 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ServicesPage from './components/pages/Services/ServicePage';
 import AboutPage from './components/pages/Aboutus/About'
+import Contactus from './components/pages/contactus/contactus'
 function AppContent() {
   const location = useLocation();
   const isServicesPage = location.pathname.startsWith('/services');
@@ -18,6 +19,7 @@ function AppContent() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/:index" element={<ServicesPage />} />
         <Route path="/aboutus" element={<AboutPage />} />
+        <Route path="/contactus" element={<Contactus />} />
 
         
       </Routes>

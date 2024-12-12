@@ -53,7 +53,8 @@ const EGCSection = ({ onCTAClick }) => {
                 ))}
             </div>
 
-            <button onClick={onCTAClick} className="flex mx-auto items-center justify-center mt-10 px-6 py-4 rounded-full font-medium transition-all duration-300 bg-primary-gradient text-white">
+            <button onClick={onCTAClick} className="flex mx-auto items-center justify-center mt-10 px-6 py-4 rounded-full font-medium transition-all duration-300 bg-primary-gradient text-white  transition-all duration-700 ease-out delay-400
+                               hover:scale-105 ">
   <span className="mr-2">Explore EGC Now</span>
   <svg
     xmlns="http://www.w3.org/2000/svg"

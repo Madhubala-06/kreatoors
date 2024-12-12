@@ -59,19 +59,19 @@ export default function Header({ isServices }) {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services/1' },
     { name: 'About us', path: '/aboutus' },
-    { name: 'AI platforms', path: '/aiplatforms' },
-    { name: 'Blogs', path: '/blogs' },
+    { name: 'AI platform', path: '/aiplatform' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Contact us', path: '/contactus' },
   ];
 
   return (
     <header className={` top-10  absolute left-0 right-0 ${isServices ? 'bg-blue-custom-400' : "bg-white"} z-50 max-w-6xl rounded-full mx-5 md:mx-5 lg:m-auto`}>
-      <div className="container mx-auto px-6">
+      <div className=" px-10  md:px-5">
         <nav className="flex items-center justify-between py-2 md:py-5">
           <div className="flex items-center space-x-12">
             <KrLogoWithFlower />
 
-            <ul className="hidden lg:flex items-center space-x-8 font-normal text-lg">
+            <ul className="hidden lg:flex items-center  space-x-4 xl:space-x-8 font-normal text-lg">
               {menuItems.map((item) => (
                
                 <li key={item.path}>

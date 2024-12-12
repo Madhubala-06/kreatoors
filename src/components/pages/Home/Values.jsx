@@ -101,7 +101,8 @@ const ValueStats = () => {
           </h1>
         </div>
         <div className="flex justify-center">
-          <button onClick={handleClick} className="px-6 py-4 mt-10 rounded-full font-medium bg-white border border-border-gradient flex items-center justify-center space-x-2">
+          <button onClick={handleClick} className="px-6 py-4 mt-10 rounded-full font-medium bg-white border border-border-gradient flex items-center justify-center space-x-2  transition-all duration-700 ease-out delay-400
+                               hover:scale-105  ">
             <span className="text-blue-custom-700 font-semibold">Book a Free Consultation </span>
             <span className="inline-block transform group-hover:translate-x-1 transition-transform text-blue-custom-700">
               <svg

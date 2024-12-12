@@ -1,6 +1,6 @@
 import Button from '../../common/Button';
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link , useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, PlusIcon, MinusIcon, CheckIcon, ArrowUpRight } from 'lucide-react';
 
 import personal_branding from '../../../assets/images/strategic-solution/personal branding.jpg';
@@ -26,26 +26,30 @@ const ServiceSection = ({
 }) => {
     const [openSection, setOpenSection] = useState(coreServices[0]?.id || '');
     const [hasAnimated, setHasAnimated] = useState(false);
-    // const [openSection, setOpenSection] = useState('');
     const navigate = useNavigate();
 
     const handleClick = () => {
-      navigate('/contactus');
-    }; 
+        navigate('/contactus');
+    };
+
     useEffect(() => {
-        // Set hasAnimated to true after initial render
+        setOpenSection(coreServices[0]?.id || '');
+    }, [coreServices]);
+
+    useEffect(() => {
+        setHasAnimated(false);
         const timer = setTimeout(() => {
             setHasAnimated(true);
-        }, 1000); // Match the animation duration
+        }, 1000);
 
         return () => clearTimeout(timer);
-    }, []); // Empty dependency array ensures this runs only once on mount
+    }, [coreServices]);
 
-    // Hero Section
+
     const HeroSection = () => (
 
 
-        
+
         <section className="py-10 px-4 md:px-6 lg:px-8 ">
             <div className="container mx-auto max-w-6xl ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -96,10 +100,10 @@ const ServiceSection = ({
                                     >
                                         <span className="text-lg font-medium text-gray-900">{service.title}</span>
                                         {openSection === service.id ? (
-                                    
+
                                             <img src={minus} className=' h-6 w-6'></img>
                                         ) : (
-                                           
+
                                             <img src={plus} className=' h-6 w-6'></img>
                                         )}
                                     </button>
@@ -135,13 +139,13 @@ const ServiceSection = ({
     );
 
 
-    
+
     const OtherServices = () => {
         const { index } = useParams();
         const currentIndex = parseInt(index);
         const scrollContainerRef = useRef(null);
         const [isScrolling, setIsScrolling] = useState(false);
-    
+
         const services = [
             {
                 id: 1,
@@ -161,55 +165,65 @@ const ServiceSection = ({
                 image: employer_development,
                 link: "/services/3"
             },
+
             {
                 id: 4,
-                title: "Internal Communications",
-                image: internal_communication,
-                link: "/services/4"
-            },
-            {
-                id: 5,
                 title: "Community Design and Development",
                 image: community_design_development,
+                link: "/services/4"
+            },
+
+            {
+                id: 5,
+                title: "Internal Communications",
+                image: internal_communication,
                 link: "/services/5"
-            }
+            },
+            
+
+
         ];
-    
+
         const otherServices = services.filter(service => service.id !== currentIndex);
-    
+
         useEffect(() => {
             const container = scrollContainerRef.current;
-            
+
             const checkScroll = () => {
                 if (container) {
                     setIsScrolling(container.scrollLeft > 0);
                 }
             };
-    
+
             container?.addEventListener('scroll', checkScroll);
             return () => container?.removeEventListener('scroll', checkScroll);
         }, []);
-    
+
         return (
             <div className="w-full py-16 bg-blue-custom-400">
                 <div className={`mx-auto px-4  `}>
-                    <h2 className="text-4xl mb-12 md:ml-48">
+                    <h2 className="text-4xl mb-12 text-center">
                         Other <span className="font-playfair italic ">Services</span>
                     </h2>
-    
-                    {/* Services Container */}
+
                     <div className="relative">
-                        <div 
+
+                        <div
                             ref={scrollContainerRef}
-                            className={`flex gap-6 overflow-x-auto hide-scrollbar transition-all duration-300 ${isScrolling ? 'md:ml-0' : 'md:ml-48  '}`}
+                            className={`flex gap-6 overflow-x-auto hide-scrollbar transition-all duration-300 ${isScrolling ? 'md:ml-0' : ' ml-0 xl:ml-48  '}`}
                         >
+
                             {otherServices.map((service) => (
-                                <Link
-                                    key={service.id}
-                                    to={service.link}
-                                    className="flex-none w-[460px] group"
-                                >
-                                    <div className="overflow-hidden">
+
+                                <div className="flex-none w-[460px] group" onClick={() => {
+                                    window.scrollTo({
+                                        top: 0,
+                                        behavior: 'instant'
+                                    });
+                                    navigate(service.link);
+                                }}>
+
+                                    <div className="overflow-hidden" >
                                         <div className="relative h-[300px] overflow-hidden">
                                             <img
                                                 src={service.image}
@@ -226,12 +240,17 @@ const ServiceSection = ({
                                             </div>
                                         </div>
                                     </div>
-                                </Link>
+
+                                </div>
+
                             ))}
+
+
                         </div>
+
                     </div>
                 </div>
-    
+
                 <style jsx>{`
                     .hide-scrollbar {
                         -ms-overflow-style: none;
@@ -244,13 +263,13 @@ const ServiceSection = ({
             </div>
         );
     };
-    
+
 
 
 
     const ImpactItems = () => {
         const sectionRef = useRef(null);
-       
+
 
         useEffect(() => {
             const observer = new IntersectionObserver(
@@ -292,26 +311,21 @@ const ServiceSection = ({
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {impactItems.map((item, index) => (
-                             <div
-                             key={index}
-                             className="bg-blue-custom-400 rounded-xl p-5 flex flex-col items-start space-y-4 transition-all duration-300 hover:bg-blue-custom-500 hover:scale-105 hover:shadow-lg"
-                           >
-                             <div className="w-8 h-8 bg-primary-gradient rounded-full flex items-center justify-center">
-                               <CheckIcon className="w-5 h-5 text-white" />
-                             </div>
-                             <h4 className="text-gray-700 font-medium max-w-52">
-                               {item}
-                             </h4>
-                           </div>
-                           
+                                <div
+                                    key={index}
+                                    className="bg-blue-custom-400 rounded-xl p-5 flex flex-col items-start space-y-4 transition-all duration-300 hover:bg-blue-custom-500 hover:scale-105 hover:shadow-lg"
+                                >
+                                    <div className="w-8 h-8 bg-primary-gradient rounded-full flex items-center justify-center">
+                                        <CheckIcon className="w-5 h-5 text-white" />
+                                    </div>
+                                    <h4 className="text-gray-700 font-medium max-w-52">
+                                        {item}
+                                    </h4>
+                                </div>
+
                             ))}
                         </div>
 
-                        {/* <div className=" mt-10 text-center">
-                            <button  className="px-8 py-3 bg-primary-gradient text-white rounded-full transition-all duration-300">
-                                Build Your Influence
-                            </button>
-                        </div> */}
                     </div>
                 </div>
             </section>
@@ -328,8 +342,8 @@ const ServiceSection = ({
         const navigate = useNavigate();
 
         const handleClick = () => {
-          navigate('/contactus');
-        }; 
+            navigate('/contactus');
+        };
         useEffect(() => {
             const observer = new IntersectionObserver(
                 ([entry]) => {
@@ -389,6 +403,7 @@ const ServiceSection = ({
                                 bg-white text-blue-custom-700 px-6 py-3.5 
                                 rounded-full font-semibold hover:bg-purple-50 
                                 transition-all duration-700 ease-out delay-400
+                               hover:scale-105 
                                 ${isVisible
                                     ? 'opacity-100 translate-y-0 scale-100'
                                     : 'opacity-0 translate-y-5 scale-95'

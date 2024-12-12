@@ -234,78 +234,9 @@ Ready to Build a Stand-Out
     </h1>,
   },
 
+
+    
   4: {
-    h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-      Internal
-      <span className="font-playfair italic   pr-3 mt-4 block">
-        Communications
-      </span>
-
-    </h1>,
-    description: "Struggling to stay aligned in today's hybrid world? Strong internal comms is essential. We help build communication frameworks that turn silos into engaged, aligned workforces. ",
-    heroImage: internal_communication,
-
-    coreServices: [
-      {
-        id: 'strategy-development',
-        title: 'Strategy Development',
-        description: 'We build communication frameworks through:',
-        content: [
-          'Designing organization-wide communication strategies',
-          'Optimizing channel effectiveness',
-          'Developing content guidelines',
-          'Building leadership communication plans',
-          'Creating message cascading systems'
-        ]
-      },
-      {
-        id: 'content-change',
-        title: 'Content & Change Management',
-        description: 'We drive engagement and clarity via:',
-        content: [
-          'Strategic campaign creation',
-          'Change management communications',
-          'Culture initiative programs',
-          'Crisis response protocols'
-        ]
-      },
-      {
-        id: 'channel-optimization',
-        title: 'Channel Optimization',
-        description: 'We maximize communication impact through:',
-        content: [
-          'Channel effectiveness audit',
-          'Platform integration',
-          'Message delivery optimization',
-          'Analytics and measurement'
-        ]
-      },
-      {
-        id: 'resource-development',
-        title: 'Resource Development',
-        description: 'We equip your teams for success with:',
-        content: [
-          'Communication toolkits',
-          'Best practice guides',
-          'Template libraries',
-          'Training materials',
-          'Leadership resources'
-        ]
-      }
-    ],
-    impactItems: [
-      "Enhanced team alignment", "Increased engagement", "Improved information flow", "Higher Talent Retention"
-    ],
-    buttontxt: "Break Your Silos Today",
-    ctaDescription: "Let's create a personal brand strategy that sets you apart.",
-    ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight text-white">
-
-Ready to Transform Your <span className='font-playfair italic  '>Internal <span className='block mt-3 font-playfair italic '>Communications?</span> </span>
-    </h1>,
-  }
-  ,
-
-  5: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
       <span className="font-playfair italic   pr-3 mt-4 ">
         Community
@@ -379,7 +310,78 @@ Ready to Transform Your <span className='font-playfair italic  '>Internal <span 
 Ready to Maximise <span className='font-playfair italic '>Community <span className=' block mt-3 font-playfair italic '>Network Effects?</span></span> 
 
     </h1>,
+  },
+
+  5: {
+    h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
+      Internal
+      <span className="font-playfair italic   pr-3 mt-4 block">
+        Communications
+      </span>
+
+    </h1>,
+    description: "Struggling to stay aligned in today's hybrid world? Strong internal comms is essential. We help build communication frameworks that turn silos into engaged, aligned workforces. ",
+    heroImage: internal_communication,
+
+    coreServices: [
+      {
+        id: 'strategy-development',
+        title: 'Strategy Development',
+        description: 'We build communication frameworks through:',
+        content: [
+          'Designing organization-wide communication strategies',
+          'Optimizing channel effectiveness',
+          'Developing content guidelines',
+          'Building leadership communication plans',
+          'Creating message cascading systems'
+        ]
+      },
+      {
+        id: 'content-change',
+        title: 'Content & Change Management',
+        description: 'We drive engagement and clarity via:',
+        content: [
+          'Strategic campaign creation',
+          'Change management communications',
+          'Culture initiative programs',
+          'Crisis response protocols'
+        ]
+      },
+      {
+        id: 'channel-optimization',
+        title: 'Channel Optimization',
+        description: 'We maximize communication impact through:',
+        content: [
+          'Channel effectiveness audit',
+          'Platform integration',
+          'Message delivery optimization',
+          'Analytics and measurement'
+        ]
+      },
+      {
+        id: 'resource-development',
+        title: 'Resource Development',
+        description: 'We equip your teams for success with:',
+        content: [
+          'Communication toolkits',
+          'Best practice guides',
+          'Template libraries',
+          'Training materials',
+          'Leadership resources'
+        ]
+      }
+    ],
+    impactItems: [
+      "Enhanced team alignment", "Increased engagement", "Improved information flow", "Higher Talent Retention"
+    ],
+    buttontxt: "Break Your Silos Today",
+    ctaDescription: "Let's create a personal brand strategy that sets you apart.",
+    ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight text-white">
+
+Ready to Transform Your <span className='font-playfair italic  '>Internal <span className='block mt-3 font-playfair italic '>Communications?</span> </span>
+    </h1>,
   }
+  ,
 
 
 

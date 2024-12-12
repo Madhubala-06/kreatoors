@@ -97,8 +97,8 @@ const AudienceSection = () => {
               key={tab}
               onClick={() => handleTabChange(tab)}
               className={`px-4 py-3.5 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 ${activeTab === tab
-                  ? 'bg-primary-gradient text-white shadow-lg'
-                  : 'text-black hover:bg-gray-200'
+                ? 'bg-primary-gradient text-white shadow-lg'
+                : 'text-black hover:bg-gray-200'
                 }`}
             >
               {tab}
@@ -109,8 +109,8 @@ const AudienceSection = () => {
         <div className="relative">
           <div
             className={`bg-white p-10 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 ease-in-out transform ${isContentVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-4'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-4'
               }`}
           >
             <h2 className="text-3xl font-medium mb-4">{tabContent[activeTab].title}</h2>
@@ -133,10 +133,17 @@ const AudienceSection = () => {
             </div>
 
             <button className="bg-primary-gradient text-sm md:text-lg text-white px-6 py-3 rounded-full transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105"
-             
 
             >
-              {tabContent[activeTab].ctaText}
+              
+              <a
+                href="https://calendly.com/coachingwitharzo/free-discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a Free Consultation
+              </a>
+
             </button>
           </div>
         </div>
