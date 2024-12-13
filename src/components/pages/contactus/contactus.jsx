@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Instagram, Linkedin } from 'lucide-react';
-
+import location from '../../../assets/images/location.png'
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         fullName: '',
@@ -29,35 +29,39 @@ const ContactForm = () => {
         <div className='bg-blue-custom-400   pt-44'>
 
             <div className="mx-auto ">
-                <div className="text-center mb-12 rounded-b-[50px]">
+                <div className="text-center mb-12 rounded-b-[50px] py-10">
                     <h1 className="text-4xl mb-4"><span className='font-playfair  '>Get in Touch</span> With Us</h1>
                     <p className=" text-sub-gray ">We're Here to Answer Your Questions and Support Your Needs</p>
                 </div>
-                <div className='bg-white '>
+                <div className='bg-white  py-16'>
 
                     <div className="grid md:grid-cols-2 gap-12 max-w-6xl  mx-auto">
                         <div>
-                            <h2 className="text-4xl  italic mb-6">Contact Us</h2>
-                            <p className="text-gray-600 mb-8">We're Just a Few Clicks Away—Let's Connect!</p>
+                            <h2 className="text-4xl "><span className='font-playfair'>Contact</span> Us</h2>
+                            <p className="text-sub-gray mb-8 my-4">We're Just a Few Clicks Away—Let's Connect!</p>
 
                             <div className="space-y-6">
                                 <div className="flex items-start space-x-3">
-                                    <div className="bg-purple-200 p-2 rounded-full">
-                                        <MapPin className="h-5 w-5 text-purple-700" />
+                                    <div className=" bg-primary-gradient p-2 rounded-full h-10 w-10">
+                                        {/* <MapPin className="h-5 w-5 text-purple-700" /> */}
+
+                                        <img src={location} className=' h-6 w-5 mx-auto'></img>
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-lg">United Kingdom</h3>
-                                        <p className="text-gray-600">AI LOVES HR Ltd 128 City Road London EC1V 2NX</p>
+                                        <p className="text-sub-gray">AI LOVES HR Ltd 128 City Road London EC1V 2NX</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start space-x-3">
-                                    <div className="bg-purple-200 p-2 rounded-full">
-                                        <MapPin className="h-5 w-5 text-purple-700" />
+                                <div className=" bg-primary-gradient p-2 rounded-full h-10 w-10">
+                                <img src={location} className=' h-6 w-5 mx-auto' ></img>
+
+                                        {/* <MapPin className="h-5 w-5 text-purple-700" /> */}
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-lg">Germany</h3>
-                                        <p className="text-gray-600">AI LOVES HR Jacobsenweg 3 22525 Hamburg</p>
+                                        <p className="text-sub-gray">AI LOVES HR Jacobsenweg 3 22525 Hamburg</p>
                                     </div>
                                 </div>
 
@@ -76,13 +80,13 @@ const ContactForm = () => {
                         </div>
 
                         <div>
-                            <div className="bg-white ">
+                            <div className=" bg-blue-custom-400  px-7 py-7 rounded-2xl ">
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     <div>
                                         <input
                                             name="fullName"
                                             placeholder="Enter full name"
-                                            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            className="w-full p-3 rounded-lg  focus:border-transparent"
                                             value={formData.fullName}
                                             onChange={handleChange}
                                         />
@@ -92,20 +96,20 @@ const ContactForm = () => {
                                             name="email"
                                             type="email"
                                             placeholder="Enter email address"
-                                            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            className="w-full p-3 rounded-lg  focus:border-transparent"
                                             value={formData.email}
                                             onChange={handleChange}
                                         />
                                     </div>
                                     <div className="flex">
-                                        <select className="p-3 rounded-l-lg border border-r-0 border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                                            <option>+44</option>
+                                        <select className="p-3 rounded-l-lg   bg-white  focus:border-transparent">
+                                            <option className=' text-sub-gray'>+44</option>
                                         </select>
                                         <input
                                             name="phone"
                                             type="tel"
                                             placeholder="Enter mobile no."
-                                            className="w-full p-3 rounded-r-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            className="w-full p-3 rounded-r-lg  focus:border-transparent"
                                             value={formData.phone}
                                             onChange={handleChange}
                                         />
@@ -114,14 +118,14 @@ const ContactForm = () => {
                                         <textarea
                                             name="message"
                                             placeholder="Enter message"
-                                            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent min-h-[150px]"
+                                            className="w-full p-3 rounded-lg  focus:border-transparent min-h-[150px]"
                                             value={formData.message}
                                             onChange={handleChange}
                                         />
                                     </div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg transition duration-200"
+                                        className="w-full md:w-1/4  bg-primary-gradient text-white py-3 rounded-full transition duration-200"
                                     >
                                         Submit
                                     </button>

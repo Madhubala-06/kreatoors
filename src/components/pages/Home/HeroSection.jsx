@@ -8,7 +8,7 @@ export default function Hero({ onCTAClick }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/services/2');
+    navigate('/contactus');
   };
   return (
     <>
@@ -27,7 +27,7 @@ export default function Hero({ onCTAClick }) {
             <Button onClick={onCTAClick} className="  transition-all duration-700 ease-out delay-400
                                hover:scale-105 ">Tailored Services For You</Button>
             <button  onClick={handleClick} className="group p-4 flex items-center border-2 text-blue-custom-700 border-blue-custom-800 justify-center px-6 py-4 rounded-full font-medium transition-all duration-300">
-              <span className="mr-2">Learn How It Works</span>
+              <span className="mr-2">Contact Us</span>
               <p className="inline-block transform group-hover:translate-x-1 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right">
                   <path d="M5 12h14" />
