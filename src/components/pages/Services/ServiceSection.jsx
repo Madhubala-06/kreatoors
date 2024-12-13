@@ -29,6 +29,10 @@ const ServiceSection = ({
     const navigate = useNavigate();
 
     const handleClick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant',
+          });
         navigate('/contactus');
     };
 
@@ -342,6 +346,10 @@ const ServiceSection = ({
         const navigate = useNavigate();
 
         const handleClick = () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'instant',
+              });
             navigate('/contactus');
         };
         useEffect(() => {

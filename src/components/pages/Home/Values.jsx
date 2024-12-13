@@ -77,6 +77,10 @@ const ValueStats = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant',
+    });
     navigate('/contactus');
   };  
   const [ref, isInView] = useInView();
