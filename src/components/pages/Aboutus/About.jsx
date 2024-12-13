@@ -140,10 +140,7 @@ const MissionFounderSection = () => {
         <h2 className="text-4xl  mb-6">
           Meet Our <span className="text-4xl md:text-4xl font-playfair italic ">Team</span>
         </h2>
-        <p className=" text-sub-gray max-w-2xl mx-auto">
-          Are you interested in joining our team, becoming a partner, or joining our
-          community, there's a place for you in our story. Let's write a chapter together
-        </p>
+       
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
