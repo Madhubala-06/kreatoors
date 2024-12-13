@@ -19,22 +19,31 @@ const ComingSoonSection = () => {
 
 
             <p className=" text-white/90 text-base md:text-lg my-8 max-w-xl">
-            Revolutionize how you build and manage your personal brand with our AI-Powered Personal Branding Platform
+              Revolutionize how you build and manage your personal brand with our AI-Powered Personal Branding Platform
             </p>
 
             <div className="flex flex-col sm:flex-row items-center">
-              <div className="flex justify-between md:w-3/4 items-center gap-4 mb-4 sm:mb-0 bg-[#9794D8] px-2 pl-4 py-2 rounded-full">
+              <form
+                action="mailto:hello@kreatoors.com"
+                method="post"
+                enctype="text/plain"
+                className="flex justify-between md:w-3/4 items-center gap-4 mb-4 sm:mb-0 bg-[#9794D8] px-2 pl-4 py-2 rounded-full"
+              >
                 <input
-                  type="email"
+                  type="text"
+                  name="text"
                   placeholder="Join the waitlist now"
                   className="bg-transparent w-4/5 text-white placeholder-white outline-none border-none focus:ring-0 focus:outline-none"
+                  required
                 />
                 <button
                   type="submit"
-                  className="bg-white text-blue-custom-700 px-6 py-2 rounded-full font-semibold hover:bg-purple-50 transition-colors">
+                  className="bg-white text-blue-custom-700 px-6 py-2 rounded-full font-semibold hover:bg-purple-50 transition-colors"
+                >
                   Join
                 </button>
-              </div>
+              </form>
+
 
             </div>
           </div>

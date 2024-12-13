@@ -100,11 +100,10 @@ const servicesData = {
         title: 'Build Strategic Foundation',
         description: 'We create comprehensive programs that drive real impact through:',
         content: [
-          'Program strategy and goals alignment',
-          'Content themes and guidelines',
-          'AI-optimized templates for calendar creation',
-          'Strategic content calendars and themes',
-          'KPI and measurement frameworks'
+         
+          "Program strategy and goals alignment",
+          "AI-optimized templates", 
+          "Strategic content calendars and themes"
         ]
       },
 

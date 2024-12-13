@@ -126,7 +126,7 @@ const Footer = () => {
               © 2024 AI Loves HR. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
+              <a href="https://kreatoors.com/privacy-policy/" className="text-sm text-gray-600 hover:text-gray-900">
                 Privacy Policy
               </a>
               <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
