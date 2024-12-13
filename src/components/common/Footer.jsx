@@ -13,7 +13,7 @@ const Footer = () => {
     { name: 'About us', href: '/aboutus' },
     { name: 'AI Platform', href: '#' },
     { name: 'Blogs', href: '#' },
-    { name: 'Contact us', href: '#' }
+    { name: 'Contact us', href: '/contactus' }
   ];
 
   const socialLinks = [
