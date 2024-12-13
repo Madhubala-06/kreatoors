@@ -49,11 +49,21 @@ const ComingSoonSection = () => {
           </div>
 
           <div className="md:w-72 hidden md:flex flex-col gap-6 pt-10 ">
-            <img
+            {/* <img
               src={RightArrow}
               alt="Decorative arrow"
               className=" w-40 opacity-60 animate-bounce"
-            />
+            /> */}
+
+<img
+  src={RightArrow}
+  alt="RightArrow"
+  className="w-40 opacity-60"
+  style={{
+    animation: 'floatCurved 4s ease-in-out infinite, drawAttention 2s ease-in-out infinite',
+    transformOrigin: 'center'
+  }}
+/>
             <div className="flex items-center gap-2 w-auto ml-20 font-semibold text-blue-custom-700 bg-white px-4 py-3 rounded-full">
               <span className="">Check</span>
               <a

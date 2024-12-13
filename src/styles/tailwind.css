@@ -129,3 +129,29 @@
 }
 
 
+
+
+
+@keyframes floatCurved {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(30px, -10px) rotate(15deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  
+  @keyframes drawAttention {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
