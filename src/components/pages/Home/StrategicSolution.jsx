@@ -58,11 +58,16 @@ const BrandSolutionsLanding = () => {
 
 
   const handleServiceClick = (id) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant' 
-    });
-        navigate(`/services/${id}`);
+    if (id === 6) {
+      window.location.href = "https://kreatoors.com/";
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant',
+      });
+      navigate(`/services/${id}`);
+    }
+    
   };
   return (
     <div className=" bg-white py-20 px-5 md:px-0 ">
