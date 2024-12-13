@@ -234,7 +234,7 @@ const ServiceSection = ({
                                         <div className="py-7">
                                             <div className="flex justify-between">
                                                 <h3 className="text-xl font-normal">{service.title}</h3>
-                                                <div className="shadow-lg p-2 cursor-pointer rounded-full w-12 h-12 flex items-center justify-center">
+                                                <div className="shadow-lg p-2 cursor-pointer rounded-full w-12 h-12 flex items-center justify-center bg-white">
                                                     <ArrowUpRight className="text-blue-custom-700 h-7 w-7" />
                                                 </div>
                                             </div>

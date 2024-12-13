@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { MapPin, Instagram, Linkedin } from 'lucide-react';
 import location from '../../../assets/images/location.png'
+import linkedIn from '../../../assets/images/linkedIn.png'
+import instagram  from '../../../assets/images/skill-icons_instagram.png'
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         fullName: '',
@@ -33,47 +34,53 @@ const ContactForm = () => {
                     <h1 className="text-4xl mb-4"><span className='font-playfair  '>Get in Touch</span> With Us</h1>
                     <p className=" text-sub-gray ">We're Here to Answer Your Questions and Support Your Needs</p>
                 </div>
-                <div className='bg-white  py-16'>
+                <div className='bg-white  py-16 px-5'>
 
                     <div className="grid md:grid-cols-2 gap-12 max-w-6xl  mx-auto">
                         <div>
                             <h2 className="text-4xl "><span className='font-playfair'>Contact</span> Us</h2>
                             <p className="text-sub-gray mb-8 my-4">We're Just a Few Clicks Away—Let's Connect!</p>
 
-                            <div className="space-y-6">
-                                <div className="flex items-start space-x-3">
+                            <div className="space-y-4 ">
+                                <div className="flex  items-center space-x-3 py-3">
                                     <div className=" bg-primary-gradient p-2 rounded-full h-10 w-10">
-                                        {/* <MapPin className="h-5 w-5 text-purple-700" /> */}
 
                                         <img src={location} className=' h-6 w-5 mx-auto'></img>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">United Kingdom</h3>
-                                        <p className="text-sub-gray">AI LOVES HR Ltd 128 City Road London EC1V 2NX</p>
+                                        <h3 className="font-semibold text-lg ">United Kingdom</h3>
+                                        
                                     </div>
                                 </div>
 
-                                <div className="flex items-start space-x-3">
+                                <p className="text-sub-gray">AI LOVES HR Ltd 128 City Road London EC1V 2NX</p>
+ 
+                                <div className="flex items-center space-x-3 py-3">
                                 <div className=" bg-primary-gradient p-2 rounded-full h-10 w-10">
                                 <img src={location} className=' h-6 w-5 mx-auto' ></img>
 
-                                        {/* <MapPin className="h-5 w-5 text-purple-700" /> */}
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">Germany</h3>
-                                        <p className="text-sub-gray">AI LOVES HR Jacobsenweg 3 22525 Hamburg</p>
+                                        <h3 className="font-semibold text-lg   ">Germany</h3>
+                                       
                                     </div>
                                 </div>
+                                <p className="text-sub-gray">AI LOVES HR 22525 Hamburg</p>
 
-                                <div className="mt-8">
+                                <div className=" py-3">
                                     <p className="font-semibold mb-3">Follow us:</p>
+                                   
                                     <div className="flex space-x-4">
+
+                                    <a href="#" className="text-blue-600 hover:text-blue-700">
+                                        <img src={instagram} className=' h-6 w-6 mx-auto' ></img>
+                                        </a>
+
                                         <a href="#" className="text-pink-500 hover:text-pink-600">
-                                            <Instagram className="h-6 w-6" />
+                                        <img src={linkedIn} className=' h-6 w-6 mx-auto' ></img>
                                         </a>
-                                        <a href="#" className="text-blue-600 hover:text-blue-700">
-                                            <Linkedin className="h-6 w-6" />
-                                        </a>
+                                      
+                                        
                                     </div>
                                 </div>
                             </div>
