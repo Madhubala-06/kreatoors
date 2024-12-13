@@ -8,6 +8,10 @@ export default function Hero({ onCTAClick }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant',
+    });
     navigate('/contactus');
   };
   return (
