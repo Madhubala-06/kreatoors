@@ -85,7 +85,7 @@ const JoinOurTeam = () => {
             <div className="border-2 border-blue-custom-600 border-dashed rounded-lg p-8 text-center bg-white cursor-pointer">
               <div className="flex flex-col items-center gap-2">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center">
-                  <img src={upload} alt="upload icon" className="w-full h-full" />
+                  <img src={upload} alt="upload icon" className="w-full h-4/5" />
                 </div>
                 <div>
                   <p className="font-medium">Upload Your Resume</p>
