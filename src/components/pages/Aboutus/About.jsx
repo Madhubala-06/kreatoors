@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import fouderImg from '../../../assets/images/founder.jpg'
 
 import CommingSoonSection from '../../pages/Home/Commingsoon'
@@ -8,6 +8,112 @@ import connection from '../../../assets/images/aboutus/icon-park-solid_circular-
 import creatorship from '../../../assets/images/aboutus/mingcute_content-ai-fill.png'
 import growth from '../../../assets/images/aboutus/uil_arrow-growth.png'
 import tick from '../../../assets/images/aboutus/tick.png'
+
+import upload from '../../../assets/images/upload.png'
+import linkedIn from '../../../assets/images/linkedIn.png'
+
+const JoinOurTeam = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    mobile: '',
+    linkedinUrl: '',
+    role: '',
+    resume: null
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    setFormData(prev => ({ ...prev, resume: file }));
+  };
+
+  return (
+    <div className="w-full max-w-6xl  px-5 md:mx-auto py-16">
+      <div className="flex flex-col md:flex-row md:gap-12 gap-8">
+        {/* Left side - Title and Description */}
+        <div className="md:w-1/2 w-full md:pt-8">
+          <h1 className="text-4xl mb-4">
+            Join Our <span className="font-playfair">Team</span>
+          </h1>
+          <p className="text-sub-gray text-base max-w-96">
+            Are you interested in joining our team, becoming a partner, or joining our community,
+            there's a place for you in our story. Let's write a chapter together
+          </p>
+        </div>
+
+        {/* Right side - Form */}
+        <div className="md:w-1/2 w-full">
+          <form onSubmit={handleSubmit} className="space-y-4 p-3 md:px-6 py-6 bg-blue-custom-400 rounded-2xl">
+            <input
+              type="text"
+              placeholder="Enter full name"
+              className="w-full p-3 rounded-lg bg-white text-sub-gray"
+            />
+
+            <input
+              type="email"
+              placeholder="Enter email address"
+              className="w-full p-3 rounded-lg bg-white text-sub-gray"
+            />
+
+            <div className="flex gap-1 md:gap-2 w-full">
+              <select className="md:w-20 p-3 rounded-lg bg-white text-sub-gray">
+                <option className="text-sub-gray">+44</option>
+              </select>
+              <input
+                type="tel"
+                placeholder="Enter mobile no."
+                className=" w-4/5  rounded-lg bg-white text-sub-gray"
+              />
+            </div>
+
+            <input
+              type="url"
+              placeholder="Enter LinkedIn URL"
+              className="w-full p-3 rounded-lg bg-white text-sub-gray"
+            />
+
+            <select className="w-full p-3 rounded-lg bg-white text-sub-gray">
+              <option value="">Role of Interest</option>
+            </select>
+
+            <div className="border-2 border-blue-custom-600 border-dashed rounded-lg p-8 text-center bg-white cursor-pointer">
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center">
+                  <img src={upload} alt="upload icon" className="w-full h-full" />
+                </div>
+                <div>
+                  <p className="font-medium">Upload Your Resume</p>
+                  <p className="text-sm text-sub-gray">max file size 10mb</p>
+                </div>
+              </div>
+              <input
+                type="file"
+                className="hidden"
+                onChange={handleFileUpload}
+                accept=".pdf,.doc,.docx"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="px-6 py-3 bg-primary-gradient text-white rounded-full transition-colors "
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    
+    </div>
+  );
+};
+
 
 const MissionFounderSection = () => {
 
@@ -126,25 +232,25 @@ const MissionFounderSection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute bottom-3 left-3 right-3 bg-white p-4 rounded-2xl">
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full overflow-hidden border-2 border-white">
-                    <img
-                      src={member.image}
-                      alt={`${member.name} avatar`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+              <div className="absolute bottom-3 left-3 right-3 bg-white p-3 rounded-2xl">
+                <div className="flex items-center  justify-between">
+                 
                   <div>
                     <h3 className="font-medium text-gray-900">{member.name}</h3>
-                    <p className="text-gray-600 text-sm">{member.role}</p>
+                    <p className="text-sub-gray text-sm">{member.role}</p>
+                  </div>
+                  <div className="h-7 w-7  overflow-hidden border-2 border-white">
+                    <img
+                      src={linkedIn}
+                      alt="linkedIn"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
         <button className="bg-primary-gradient  px-6 py-4 rounded-full  mt-14 text-white mx-auto block">
           Book a Call With Our Team
         </button>
@@ -198,7 +304,7 @@ const MissionFounderSection = () => {
                   </div>
                   <h3 className="text-xl font-medium">{value.title}</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sub-gray leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -206,6 +312,9 @@ const MissionFounderSection = () => {
           </div>
         </div>
       </section>
+
+<JoinOurTeam/>
+
 
       <CommingSoonSection />
 
