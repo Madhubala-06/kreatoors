@@ -92,8 +92,8 @@ const ValueStats = () => {
         <div className="text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
             <span className="inline-block">
-              <span className="inline-block min-w-[4ch]">{animatedValue} {"%"}</span> 
-              {" "}of{" "}
+              <span className="inline-block min-w-[4ch]">{animatedValue}{"%"}</span> 
+              of{" "}
               <span className="font-playfair italic font-normal pr-3">
                 Consumers Trust
               </span>

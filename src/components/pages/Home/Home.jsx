@@ -5,7 +5,7 @@ import HeroSection from './HeroSection'
 import BrandSolutionsLanding from './StrategicSolution'
 import AudienceSection from './AudienceSection'
 import ComingSoonSection from './Commingsoon'
-
+import Stats from './stats'
 export default function Home() {
   const brandSolutionsRef = useRef(null);
 
@@ -24,7 +24,7 @@ export default function Home() {
         </div>
         
         <AudienceSection />
-        
+        <Stats/>
         
         
         <ComingSoonSection />

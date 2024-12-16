@@ -91,7 +91,7 @@ const AudienceSection = () => {
           Who Do We <span className="font-playfair italic  ">Empower?</span>
         </h1>
 
-        <div className="flex flex-wrap justify-evenly   my-10 bg-white p-4 rounded-full">
+        <div className="flex flex-wrap justify-evenly   my-10 md:bg-white p-4 rounded-full">
           {Object.keys(tabContent).map((tab) => (
             <button
               key={tab}

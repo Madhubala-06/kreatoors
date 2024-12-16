@@ -66,7 +66,7 @@ export default function Header({ isServices }) {
 
   return (
     <header className={` top-10  absolute left-0 right-0 ${isServices ? 'bg-blue-custom-400' : "bg-white"} z-50 max-w-6xl rounded-full mx-5 md:mx-10 lg:mx-10 xl:m-auto`}>
-      <div className=" px-10  md:px-5">
+      <div className="px-5">
         <nav className="flex items-center justify-between py-3.5 md:py-5">
           <div className="flex items-center space-x-12">
             <KrLogoWithFlower />
@@ -91,7 +91,7 @@ export default function Header({ isServices }) {
           </div>
           <div className="hidden lg:block">
             <Button className="bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]">
-              Book a FREE Discovery Call
+              Book Free Discovery Call
             </Button>
           </div>
 

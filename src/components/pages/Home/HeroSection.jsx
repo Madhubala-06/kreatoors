@@ -29,7 +29,7 @@ export default function Hero({ onCTAClick }) {
 
           <div className="flex flex-col md:flex-row gap-4 pt-5 justify-center">
             <Button onClick={onCTAClick} className="  transition-all duration-700 ease-out delay-400
-                               hover:scale-105 ">Tailored Services For You</Button>
+                               hover:scale-105 ">Explore Our Services</Button>
             <button  onClick={handleClick} className="group p-4 flex items-center border-2 text-blue-custom-700 border-blue-custom-800 justify-center px-6 py-4 rounded-full font-medium transition-all duration-300">
               <span className="mr-2">Contact Us</span>
               <p className="inline-block transform group-hover:translate-x-1 transition-transform">
