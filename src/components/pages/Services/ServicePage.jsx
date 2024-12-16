@@ -71,7 +71,7 @@ const servicesData = {
       "Increased visibility and opportunities", "Premium client/ partnership attraction", "Industry authority establishment", "Measurable brand growth"
     ]
     ,
-    buttontxt: "Build your Influences",
+    buttontxt: "Build your Influence",
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px]  leading-tight  text-white">
       Ready to Turn Your Expertise into
       <span className=" block mt-5">
