@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import fouderImg from '../../../assets/images/founder.jpg'
 
-import CommingSoonSection from '../../pages/Home/Commingsoon'
+import CommingSoonSection from '../Home/Commingsoon'
 
 import bulb from '../../../assets/images/aboutus/tabler_bulb-filled.png'
 import connection from '../../../assets/images/aboutus/icon-park-solid_circular-connection.png'
@@ -110,9 +110,9 @@ const JoinOurTeam = () => {
               />
               <label htmlFor="agree" className="text-sm text-sub-gray">
                 I agree to the
-                <span className="font-bold  text-blue-custom-700 pr-0.5"> Privacy Policy</span>
+                <span className="font-bold  text-blue-custom-600 pr-0.5"> Privacy Policy</span>
                 and
-                <span className="font-bold  text-blue-custom-700 pl-0.5"> Terms and Conditions</span>.
+                <span className="font-bold  text-blue-custom-600 pl-0.5"> Terms and Conditions</span>.
               </label>
             </div>
 
