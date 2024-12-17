@@ -11,116 +11,257 @@ import tick from '../../../assets/images/aboutus/tick.png'
 
 import upload from '../../../assets/images/upload.png'
 import linkedIn from '../../../assets/images/linkedIn.png'
+import { db, serverTimestamp, collection, addDoc, storage } from '../../../firebase';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 const JoinOurTeam = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     mobile: '',
+    countryCode: '+44',
     linkedinUrl: '',
     role: '',
-    resume: null
+    resume: null,
+    text: ''
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
+  const [uploadedFileName, setUploadedFileName] = useState('');
+
+  const countryCodes = [
+    { code: '+1', country: 'USA/Canada' },
+    { code: '+44', country: 'UK' },
+    { code: '+91', country: 'India' },
+    { code: '+61', country: 'Australia' },
+    { code: '+86', country: 'China' },
+    { code: '+49', country: 'Germany' },
+    { code: '+33', country: 'France' },
+    { code: '+81', country: 'Japan' }
+  ];
+
+  const roleOptions = [
+    { value: '', label: 'Role of Interest' },
+    { value: 'frontend', label: 'Frontend Developer' },
+    { value: 'backend', label: 'Backend Developer' },
+    { value: 'fullstack', label: 'Full Stack Developer' },
+    { value: 'qa', label: 'Quality Assurance Engineer' },
+    { value: 'research', label: 'Research Engineer' },
+    { value: 'devops', label: 'DevOps Engineer' },
+    { value: 'ui-ux', label: 'UI/UX Designer' }
+  ];
+
+  const handleFileClick = () => {
+    document.getElementById('resumeUpload').click();
   };
+
+
+
+
+
+
+
+  
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
-    setFormData(prev => ({ ...prev, resume: file }));
+    if (file) {
+      if (file.size > 10 * 1024 * 1024) {
+        alert('File size must be less than 10MB');
+        return;
+      }
+      
+      const validTypes = ['.pdf', '.doc', '.docx'];
+      const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+      if (!validTypes.includes(fileExtension)) {
+        alert('Please upload a PDF or Word document');
+        return;
+      }
+
+      setFormData(prev => ({ ...prev, resume: file }));
+      setUploadedFileName(file.name);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      let downloadURL = '';
+      
+      if (formData.resume) {
+        const storageRef = ref(storage, `resumes/${Date.now()}-${formData.resume.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, formData.resume);
+
+        await new Promise((resolve, reject) => {
+          uploadTask.on(
+            'state_changed',
+            (snapshot) => {
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              console.log('Upload progress: ' + progress + '%');
+            },
+            (error) => {
+              console.error('Error uploading file:', error);
+              reject(error);
+            },
+            async () => {
+              downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+              resolve();
+            }
+          );
+        });
+      }
+
+      await addDoc(collection(db, 'applications'), {
+        fullName: formData.fullName,
+        email: formData.email,
+        mobile: formData.countryCode + formData.mobile,
+        linkedinUrl: formData.linkedinUrl,
+        role: formData.role,
+        text: formData.text,
+        resume: downloadURL,
+        createdAt: serverTimestamp(),
+      });
+
+      setFormData({
+        fullName: '',
+        email: '',
+        mobile: '',
+        countryCode: '+44',
+        linkedinUrl: '',
+        role: '',
+        resume: null,
+        text: ''
+      });
+      setUploadedFileName('');
+      alert('Application submitted successfully!');
+
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      alert('Error submitting application. Please try again.');
+    }
   };
 
   return (
-    <div className="w-full max-w-6xl px-5 md:mx-auto py-16">
-      <div className="flex flex-col items-center justify-center space-y-8"> {/* Parent container is flex-col and centered */}
-
-        {/* Left side - Title and Description */}
-        <div className="w-full flex flex-col items-center text-center md:pt-8"> {/* Left side as flex-col, center content */}
+    <div className="w-full max-w-6xl px-5 md:mx-auto py-16 bg-white">
+      <div className="flex flex-col items-center justify-center space-y-8">
+        <div className="w-full flex flex-col items-center text-center md:pt-8">
           <h1 className="text-4xl mb-4">
             Join Our <span className="font-playfair">Team</span>
           </h1>
-          <p className="text-sub-gray text-base  max-w-2xl"> {/* Center text and container */}
-            Are you interested in joining our team, becoming a partner, or joining our community,
-            there's a place for you in our story. Let's write a chapter together.
+          <p className="text-sub-gray text-base max-w-2xl">
+            Are you interested in joining our team, becoming a partner, or joining our community? There's a place for you in our story. Let's write a chapter together.
           </p>
         </div>
 
         <div className="w-full flex flex-col items-center">
-          <form onSubmit={handleSubmit} className="space-y-4 p-3 md:px-6 py-6 bg-blue-custom-400 rounded-2xl w-full  max-w-4xl"> {/* Right side as flex-col, max width */}
+          <form onSubmit={handleSubmit} className="space-y-4 p-3 md:px-6 py-6 bg-blue-custom-400 rounded-2xl w-full max-w-4xl">
             <input
               type="text"
               placeholder="Enter full name"
               className="w-full p-3 rounded-lg bg-white text-sub-gray"
+              value={formData.fullName}
+              onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+              required
             />
 
             <input
               type="email"
               placeholder="Enter email address"
               className="w-full p-3 rounded-lg bg-white text-sub-gray"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
             />
 
             <div className="flex gap-1 md:gap-2 w-full">
-              <select className="md:w-20 p-3 rounded-lg bg-white text-sub-gray">
-                <option className="text-sub-gray">+44</option>
+              <select 
+                className="md:w-32 p-3 rounded-lg bg-white text-sub-gray"
+                value={formData.countryCode}
+                onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+              >
+                {countryCodes.map((country) => (
+                  <option key={country.code} value={country.code}>
+                    {country.code} {country.country}
+                  </option>
+                ))}
               </select>
               <input
                 type="tel"
                 placeholder="Enter mobile no."
-                className="w-4/5 rounded-lg bg-white text-sub-gray"
+                className="w-4/5 p-3 rounded-lg bg-white text-sub-gray"
+                value={formData.mobile}
+                onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                required
               />
             </div>
 
-            <select className="w-full p-3 rounded-lg bg-white text-sub-gray">
-              <option value="">Role of Interest</option>
+            <select
+              className="w-full p-3 rounded-lg bg-white text-sub-gray"
+              value={formData.role}
+              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+              required
+            >
+              {roleOptions.map((role) => (
+                <option key={role.value} value={role.value}>
+                  {role.label}
+                </option>
+              ))}
             </select>
 
             <textarea
-              placeholder="Tell us in few words why you would be a great addition to our team? Tell us about your skills, passion, and experience"
-              className="w-full p-3 bg-white text-sub-gray rounded-none border-0 resize-none  text-base"
+              placeholder="Tell us in few words why you would be a great addition to our team?"
+              className="w-full p-3 bg-white text-sub-gray rounded-lg border-0 resize-none text-base min-h-[120px]"
+              value={formData.text}
+              onChange={(e) => setFormData({ ...formData, text: e.target.value })}
+              required
             />
 
-            <div className="border-2 border-blue-custom-600 border-dashed rounded-lg p-8 text-center bg-white cursor-pointer">
+            <div 
+              onClick={handleFileClick}
+              className="border-2 border-blue-custom-600 border-dashed rounded-lg p-8 text-center bg-white cursor-pointer hover:bg-gray-50 transition-colors"
+            >
               <div className="flex flex-col items-center gap-2">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center">
-                  <img src={upload} alt="upload icon" className="w-full h-4/5" />
+                  <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
                 </div>
                 <div>
-                  <p className="font-medium">Upload Your Resume</p>
-                  <p className="text-sm text-sub-gray">max file size 10mb</p>
+                  <p className="font-medium">
+                    {uploadedFileName ? `Selected: ${uploadedFileName}` : 'Upload Your Resume'}
+                  </p>
+                  <p className="text-sm text-sub-gray">PDF or Word document, max 10MB</p>
                 </div>
               </div>
               <input
+                id="resumeUpload"
                 type="file"
                 className="hidden"
                 onChange={handleFileUpload}
                 accept=".pdf,.doc,.docx"
+                required
               />
             </div>
+
             <div className="flex items-center space-x-2 py-5">
               <input
                 type="checkbox"
                 id="agree"
-                className="h-4 w-4 rounded border-gray-200 border-2 
-  checked:bg-primary-gradient 
-  checked:border-transparent 
-  focus:ring-0 focus:ring-offset-0
-  "
+                required
+                className="h-4 w-4 rounded border-gray-200 border-2 checked:bg-primary-gradient checked:border-transparent focus:ring-0 focus:ring-offset-0"
               />
               <label htmlFor="agree" className="text-sm text-sub-gray">
                 I agree to the
-                <span className="font-bold  text-blue-custom-600 pr-0.5"> Privacy Policy</span>
+                <span className="font-bold text-blue-custom-600 px-1">Privacy Policy</span>
                 and
-                <span className="font-bold  text-blue-custom-600 pl-0.5"> Terms and Conditions</span>.
+                <span className="font-bold text-blue-custom-600 px-1">Terms and Conditions</span>.
               </label>
             </div>
 
-            <div className="flex justify-center"> {/* Center the submit button */}
+            <div className="flex justify-center">
               <button
                 type="submit"
-                className="px-6 py-3 bg-primary-gradient text-white rounded-full transition-all duration-700 ease-out delay-400
-                               hover:scale-105"
+                className="px-6 py-3 bg-primary-gradient text-white rounded-full transition-all duration-700 ease-out hover:scale-105"
               >
                 Submit
               </button>
@@ -129,9 +270,9 @@ const JoinOurTeam = () => {
         </div>
       </div>
     </div>
-
   );
 };
+
 
 
 const MissionFounderSection = () => {

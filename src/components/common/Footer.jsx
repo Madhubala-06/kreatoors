@@ -18,7 +18,7 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
+    { name: 'LinkedIn', icon: Linkedin, href: ' https://www.linkedin.com/company/kreatoors/posts/?feedView=all' },
     { name: 'Instagram', icon: Instagram, href: '#' },
     { name: 'Twitter', icon: Twitter, href: '#' }
   ];

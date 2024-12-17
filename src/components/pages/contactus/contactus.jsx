@@ -76,7 +76,7 @@ const ContactForm = () => {
                                         <img src={instagram} className=' h-6 w-6 mx-auto' ></img>
                                         </a>
 
-                                        <a href="#" className="text-pink-500 hover:text-pink-600">
+                                        <a target='_blank' href=" https://www.linkedin.com/company/kreatoors/posts/?feedView=all" className="text-pink-500 hover:text-pink-600">
                                         <img src={linkedIn} className=' h-6 w-6 mx-auto' ></img>
                                         </a>
                                       

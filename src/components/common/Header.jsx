@@ -102,10 +102,12 @@ export default function Header({ isServices }) {
             </ul>
           </div>
           <div className="hidden xl:block">
-            <Button className="bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]  transition-all duration-700 ease-out delay-400
-                               hover:scale-105">
-              Book Free Discovery Call
-            </Button>
+          <a target='_blank' href="https://calendly.com/coachingwitharzo/free-discovery-call" rel="noopener noreferrer">
+  <Button className="bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84] transition-all duration-700 ease-out delay-400 hover:scale-105">
+    Book Free Discovery Call
+  </Button>
+</a>
+
           </div>
 
           {/* Mobile menu button */}
