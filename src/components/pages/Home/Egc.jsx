@@ -1,81 +1,85 @@
 import React from 'react';
-import fluent_arrow from '../../../assets/images/fluent_arrow-growth-24-filled.png'
-import fluent_people from '../../../assets/images/fluent_person-voice-24-filled.png'
-import hand_shake from '../../../assets/images/streamline_business-handshake-solid.png'
+import Egc1 from '../../../assets/images/egc.png';
+import Egc2 from '../../../assets/images/egc2.png';
 
-const EGCSection = ({ onCTAClick }) => {
-    const features = [
-        {
-            title: "Brand Stories, Told by Its Heroes",
-            description: "Employee-created content that brings your company's authentic experiences and culture to life through personal storytelling.",
-            icon: fluent_people
-        },
-        {
-            title: "Trust Through Authenticity",
-            description: "Transform customer perception by replacing polished corporate messaging with real employee insights and experiences.",
-            icon: hand_shake
-        },
-        {
-            title: "Your Brand Amplifier",
-            description: "A strategic approach that transforms employees into brand ambassadors, extending reach and engagement beyond traditional marketing channels.",
-            icon: fluent_arrow
-        }
-    ];
-    return (
-        <div className=" bg-blue-custom-400 ">
+const Section = ({ title, description, impacts, image, reverse, bgColor }) => {
+  return (
+    <div className={`flex flex-col lg:flex-row gap-8 justify-evenly items-center ${bgColor} rounded-2xl`}>
+      {reverse && (
+        <div className="lg:w-2/5 order-2 lg:order-1">
+          <img src={image} alt={title} className="rounded-lg w-full object-cover" />
+        </div>
+      )}
 
+      <div className={`py-10 ${reverse ? 'lg:w-1/2 order-1 lg:order-2' : 'max-w-[560px]'}`}>
+        <p className="text-gray-700 mb-6">{description}</p>
+        <div className="space-y-2">
+          <h3 className="text-blue-custom-600 font-medium mb-3">Impact:</h3>
+          <ul className="space-y-3 text-gray-700">
+            {impacts.map((impact, index) => (
+              <li key={index} className="flex items-start gap-2">• {impact}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
-        
-        <div className="max-w-6xl mx-auto px-4  py-20 ">
-            <div className="text-center mb-12">
-                
+      {!reverse && (
+        <div className="lg:w-2/5">
+          <img src={image} alt={title} className="rounded-lg w-full object-cover" />
+        </div>
+      )}
+    </div>
+  );
+};
 
-
-                <h2 className="text-4xl md:text-5xl max-w-5xl  mx-auto">
-            What's 
-            <span className="font-playfair  italic ml-2">Employee Generated Content (EGC)?</span>
+const EGCSection = () => {
+  return (
+    <>
+      {/* EGC Section */}
+      <div className="w-full bg-blue-custom-400">
+        <section className="max-w-6xl rounded-2xl p-8 lg:p-8 mx-auto">
+          <h2 className="text-3xl lg:text-4xl mb-8">
+            What's <span className="font-playfair">Employee Generated Content (EGC)?</span>
           </h2>
+          <Section
+            title="Employee Generated Content"
+            description="EGC is authentic content created by your team, including posts, product demos, and success stories, reflecting genuine employee experiences."
+            impacts={[
+              'Creates trust through authentic employee voices',
+              'Shows real workplace culture, not just corporate messaging',
+              'Builds genuine connections with potential customers & talent',
+              'Scales content creation naturally through your employees',
+            ]}
+            image={Egc1}
+            bgColor="bg-white"
+            reverse={false}
+          />
+        </section>
+      </div>
 
-            
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  py-5">
-                {features.map((feature, index) => (
-                    <div
-                        key={index}
-                        className=" bg-white p-5  rounded-lg rounded-tr-[40px]   shadow-sm  transition-shadow"
-                    >
-                        <div className="w-12 h-12 bg-primary-gradient rounded-full flex items-center justify-center text-white mb-6">
-                            <img src={feature.icon} className=' w-6 h-6' ></img>
-                        </div>
-                        <h3 className="text-[21px] font-semibold mb-3  max-w-72">{feature.title}</h3>
-                        <p className=" text-sub-gray  max-w-72 text-[17px]">{feature.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <button onClick={onCTAClick} className="flex mx-auto items-center justify-center mt-10 px-6 py-4 rounded-full font-medium transition-all duration-300 bg-primary-gradient text-white  transition-all duration-700 ease-out delay-400
-                               hover:scale-105 ">
-  <span className="mr-2">Explore EGC Now</span>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="stroke-white"
-  >
-    <path d="M5 12h14" />
-    <path d="m12 5 7 7-7 7" />
-  </svg>
-</button>
-
-        </div>
-        </div>
-    );
+      {/* Corporate Influencing Section */}
+      <div className="bg-white">
+        <section className="rounded-2xl p-8 lg:p-8 max-w-6xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl mb-8">
+            What is <span className="font-playfair">Corporate Influencing?</span>
+          </h2>
+          <Section
+            title="Corporate Influencing"
+            description="Selected employees act as brand ambassadors, sharing insights and building trust, strengthening your brand's market position."
+            impacts={[
+              'Leverages expertise of leaders & key employees to build thought leadership',
+              'Builds genuine brand authority in your industry',
+              'Reaches decision-makers through peer-to-peer influence',
+              'Drives quality leads through expert positioning',
+            ]}
+            image={Egc2}
+            bgColor="bg-blue-custom-400"
+            reverse={true}
+          />
+        </section>
+      </div>
+    </>
+  );
 };
 
 export default EGCSection;

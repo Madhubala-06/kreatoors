@@ -1,52 +1,63 @@
 'use client'
 import Button from "./Button";
 import logo from '../../assets/images/logo-kreatoors-spin.png'
-import flower from '../../assets/images/flower-spin.png'
+// import flower from '../../assets/images/flower-spin.png'
 import { NavLink } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import Logo from "./Logo";
+import kr from '../../assets/images/logos/Kr.png'
+import eato from '../../assets/images/logos/eato.png'
+import flower from '../../assets/images/logos/flower.png'
+import rs from '../../assets/images/logos/rs.png'
 
-const KrLogoWithFlower = () => {
-  const [isRotating, setIsRotating] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsRotating(false);
-    }, 3000);
+// const KrLogoWithFlower = () => {
+//   const [isRotating, setIsRotating] = useState(true);
 
-    return () => clearTimeout(timer);
-  }, []);
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       setIsRotating(false);
+//     }, 3000);
 
-  return (
-    <div className="relative w-14 h-14">
-      <img
-        src={logo}
-        alt="Kr Logo"
-        className="w-full h-full"
-      />
-      <img
-        src={flower}
-        alt="Flower"
-        style={{
-          backfaceVisibility: 'hidden',
-          transform: isRotating ? 'rotate(0deg)' : 'rotate(360deg)',
-          transition: isRotating
-            ? 'transform 0.2s ease-in-out'
-            : 'transform 5s linear',
-          willChange: 'transform',
-          imageRendering: 'crisp-edges',
-        }}
-        className={`
-          absolute 
-          right-2.5
-          bottom-3.5
-          w-3
-          h-3
-          select-none
-        `}
-      />
-    </div>
-  );
-};
+//     return () => clearTimeout(timer);
+//   }, []);
+
+//   return (
+// <div className=" h-auto w-auto flex items-end">
+//   <img
+//     src={kr}
+//     alt="Kr Logo"
+//     className="h-7  object-contain"
+//   />
+//   <img
+//     src={eato}
+//     alt="Eato Logo"
+//     className=" h-6 -ml-1 object-contain pt-0.5"
+//   />
+//   <img
+//     src={flower}
+//     alt="Flower"
+//     style={{
+//       backfaceVisibility: 'hidden',
+//       transform: isRotating ? 'rotate(0deg)' : 'rotate(360deg)',
+//       transition: isRotating
+//         ? 'transform 0.2s ease-in-out'
+//         : 'transform 5s linear',
+//       willChange: 'transform',
+//       imageRendering: 'crisp-edges',
+//     }}
+//     className=" h-5 mx-0.5  p object-contain"
+//   />
+//   <img
+//     src={rs}
+//     alt="Rs Logo"
+//     className="   h-[17px]  object-contain"
+//   />
+// </div>
+
+
+//   );
+// };
 
 export default function Header({ isServices }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -69,7 +80,8 @@ export default function Header({ isServices }) {
       <div className="px-5">
         <nav className="flex items-center justify-between py-3.5 md:py-5">
           <div className="flex items-center space-x-12">
-            <KrLogoWithFlower />
+            {/* <KrLogoWithFlower /> */}
+            <Logo />
 
             <ul className="hidden lg:flex items-center  space-x-4 xl:space-x-8 font-normal text-lg">
               {menuItems.map((item) => (
@@ -90,7 +102,8 @@ export default function Header({ isServices }) {
             </ul>
           </div>
           <div className="hidden lg:block">
-            <Button className="bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]">
+            <Button className="bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]  transition-all duration-700 ease-out delay-400
+                               hover:scale-105">
               Book Free Discovery Call
             </Button>
           </div>
@@ -123,10 +136,11 @@ export default function Header({ isServices }) {
                 ))}
                 <li className="px-4 py-3">
                   <Button
-                    className="w-full bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]"
+                    className="w-full bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]  transition-all duration-700 ease-out delay-400
+                               hover:scale-105"
                     onClick={toggleMobileMenu}
                   >
-                    Book a Discovery Call
+                    Book Free Discovery Call
                   </Button>
                 </li>
               </ul>

@@ -132,7 +132,8 @@ const ServiceSection = ({
                                 </div>
                             ))}
                         </div>
-                        <button onClick={handleClick} className="w-full py-3 px-6 bg-primary-gradient text-white rounded-full transition-all duration-300">
+                        <button onClick={handleClick} className="w-full py-3 px-6 bg-primary-gradient text-white rounded-full transition-all duration-300 transition-all duration-700 ease-out delay-400
+                               hover:scale-105">
                             {buttontxt}
                         </button>
                     </div>

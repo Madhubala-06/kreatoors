@@ -33,22 +33,22 @@ const JoinOurTeam = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl  px-5 md:mx-auto py-16">
-      <div className="flex flex-col md:flex-row md:gap-12 gap-8">
+    <div className="w-full max-w-6xl px-5 md:mx-auto py-16">
+      <div className="flex flex-col items-center justify-center space-y-8"> {/* Parent container is flex-col and centered */}
+
         {/* Left side - Title and Description */}
-        <div className="md:w-1/2 w-full md:pt-8">
+        <div className="w-full flex flex-col items-center text-center md:pt-8"> {/* Left side as flex-col, center content */}
           <h1 className="text-4xl mb-4">
             Join Our <span className="font-playfair">Team</span>
           </h1>
-          <p className="text-sub-gray text-base max-w-96">
+          <p className="text-sub-gray text-base  max-w-2xl"> {/* Center text and container */}
             Are you interested in joining our team, becoming a partner, or joining our community,
-            there's a place for you in our story. Let's write a chapter together
+            there's a place for you in our story. Let's write a chapter together.
           </p>
         </div>
 
-        {/* Right side - Form */}
-        <div className="md:w-1/2 w-full">
-          <form onSubmit={handleSubmit} className="space-y-4 p-3 md:px-6 py-6 bg-blue-custom-400 rounded-2xl">
+        <div className="w-full flex flex-col items-center">
+          <form onSubmit={handleSubmit} className="space-y-4 p-3 md:px-6 py-6 bg-blue-custom-400 rounded-2xl w-full  max-w-4xl"> {/* Right side as flex-col, max width */}
             <input
               type="text"
               placeholder="Enter full name"
@@ -68,19 +68,18 @@ const JoinOurTeam = () => {
               <input
                 type="tel"
                 placeholder="Enter mobile no."
-                className=" w-4/5  rounded-lg bg-white text-sub-gray"
+                className="w-4/5 rounded-lg bg-white text-sub-gray"
               />
             </div>
-
-            <input
-              type="url"
-              placeholder="Enter LinkedIn URL"
-              className="w-full p-3 rounded-lg bg-white text-sub-gray"
-            />
 
             <select className="w-full p-3 rounded-lg bg-white text-sub-gray">
               <option value="">Role of Interest</option>
             </select>
+
+            <textarea
+              placeholder="Tell us in few words why you would be a great addition to our team? Tell us about your skills, passion, and experience"
+              className="w-full p-3 bg-white text-sub-gray rounded-none border-0 resize-none  text-base"
+            />
 
             <div className="border-2 border-blue-custom-600 border-dashed rounded-lg p-8 text-center bg-white cursor-pointer">
               <div className="flex flex-col items-center gap-2">
@@ -99,18 +98,38 @@ const JoinOurTeam = () => {
                 accept=".pdf,.doc,.docx"
               />
             </div>
+            <div className="flex items-center space-x-2 py-5">
+              <input
+                type="checkbox"
+                id="agree"
+                className="h-4 w-4 rounded border-gray-200 border-2 
+  checked:bg-primary-gradient 
+  checked:border-transparent 
+  focus:ring-0 focus:ring-offset-0
+  "
+              />
+              <label htmlFor="agree" className="text-sm text-sub-gray">
+                I agree to the
+                <span className="font-bold  text-blue-custom-700 pr-0.5"> Privacy Policy</span>
+                and
+                <span className="font-bold  text-blue-custom-700 pl-0.5"> Terms and Conditions</span>.
+              </label>
+            </div>
 
-            <button
-              type="submit"
-              className="px-6 py-3 bg-primary-gradient text-white rounded-full transition-colors "
-            >
-              Submit
-            </button>
+            <div className="flex justify-center"> {/* Center the submit button */}
+              <button
+                type="submit"
+                className="px-6 py-3 bg-primary-gradient text-white rounded-full transition-all duration-700 ease-out delay-400
+                               hover:scale-105"
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
-    
     </div>
+
   );
 };
 
@@ -213,7 +232,7 @@ const MissionFounderSection = () => {
         </div>
       </div>
 
-
+      {/* 
 
       <section className="py-16 px-4 max-w-6xl mx-auto">
         <div className="text-center mb-12">
@@ -254,7 +273,7 @@ const MissionFounderSection = () => {
         <button className="bg-primary-gradient  px-6 py-4 rounded-full  mt-14 text-white mx-auto block">
           Book a Call With Our Team
         </button>
-      </section>
+      </section> */}
 
 
 
@@ -313,7 +332,7 @@ const MissionFounderSection = () => {
         </div>
       </section>
 
-<JoinOurTeam/>
+      <JoinOurTeam />
 
 
       <CommingSoonSection />

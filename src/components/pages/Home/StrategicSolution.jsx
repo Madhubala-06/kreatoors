@@ -65,7 +65,7 @@ const BrandSolutionsLanding = () => {
   };
 
   return (
-    <div className="bg-white py-20 px-5 md:px-0">
+    <div className=" bg-blue-custom-400 py-20 px-5 md:px-0">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl mb-6 mx-auto text-center">
@@ -89,20 +89,20 @@ const BrandSolutionsLanding = () => {
                 key={solution.id}
                 className="relative overflow-hidden rounded-xl transition-all duration-500 ease-in-out group"
               >
-                <div className="absolute inset-0 bg-blue-custom-500 transition-opacity duration-500 ease-in-out" />
+                <div className="absolute inset-0 bg-white transition-opacity duration-500 ease-in-out" />
                 <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
 
                 {/* Content */}
                 <div className="relative p-7 h-full flex flex-col justify-between z-10">
                   <div className="h-2/3">
-                    <div className="bg-white p-2 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 transform transition-transform duration-300 ease-in-out group-hover:scale-105">
+                    <div className=" bg-blue-custom-400 p-2 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 transform transition-transform duration-300 ease-in-out group-hover:scale-105">
                       <img
                         src={solution.icon}
                         alt={solution.icon}
                         className="w-6 h-6 transition-transform duration-300 ease-in-out"
                       />
                     </div>
-                    <h3 className=" text-xl my-6 max-w-60 font-semibold text-black transition-colors duration-500 ease-in-out group-hover:text-white whitespace-pre-line">
+                    <h3 className=" text-xl my-6 max-w-60   font-medium text-black transition-colors duration-500 ease-in-out group-hover:text-white ">
                       {formattedTitle}
                     </h3>
                   </div>

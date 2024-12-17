@@ -85,19 +85,19 @@ const AudienceSection = () => {
   };
 
   return (
-    <div className="w-full  bg-blue-custom-400 py-20 ">
+    <div className="w-full  bg-white py-20 ">
       <div className="max-w-6xl mx-auto px-4  ">
         <h1 className="text-3xl sm:text-4xl md:text-5xl text-center ">
           Who Do We <span className="font-playfair italic  ">Empower?</span>
         </h1>
 
-        <div className="flex flex-wrap justify-evenly   my-10 md:bg-white p-4 rounded-full">
+        <div className="flex flex-wrap justify-evenly   my-10  bg-blue-custom-400 p-4 rounded-full">
           {Object.keys(tabContent).map((tab) => (
             <button
               key={tab}
               onClick={() => handleTabChange(tab)}
               className={`px-4 py-3.5 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 ${activeTab === tab
-                ? 'bg-primary-gradient text-white shadow-lg'
+                ? 'bg-primary-gradient text-white '
                 : 'text-black hover:bg-gray-200'
                 }`}
             >
@@ -108,7 +108,7 @@ const AudienceSection = () => {
 
         <div className="relative">
           <div
-            className={`bg-white p-10 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 ease-in-out transform ${isContentVisible
+            className={` bg-blue-custom-500 p-10 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 ease-in-out transform ${isContentVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-4'
               }`}
@@ -141,7 +141,7 @@ const AudienceSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book a Free Consultation
+                Book Free Consultation
               </a>
 
             </button>

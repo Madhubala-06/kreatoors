@@ -9,6 +9,8 @@ import internal_communication from '../../../assets/images/strategic-solution/in
 import community_design_development from '../../../assets/images/strategic-solution/community-design-development.png'
 
 
+
+
 const servicesData = {
   1: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight">
@@ -22,49 +24,56 @@ const servicesData = {
     description: "Your personal brand is your most powerful asset in today's professional landscape. Elevate your Influence with a positioning as a trusted voice in your industry.",
     heroImage: personal_branding,
     coreServices: [
+
+
+
+
+
+
+
       {
         id: 'brand-strategy',
         title: 'Brand Strategy & Positioning',
-        description: '    We craft your unique positioning as an industry voice through .',
+        description: ' We craft your unique positioning with: ',
         content: [
-          'Executive brand positioning',
-          'Leadership narrative development',
-          'Strategic differentiation',
-          'Industry authority mapping'
+          " Executive brand development and leadership narratives. ",
+
+          "Strategic differentiation and industry authority mapping. "
         ]
       },
+
+
+
+
+
       {
         id: 'digital-presence',
-        title: 'Digital Leadership Presence',
-        description: 'Transform your online presence into a magnet for opportunities:',
+        title: 'Digital Leadership Presence ',
+        description: 'We transform your online presence by: ',
         content: [
-          'Executive profile optimization',
-          'Leadership story development',
-          'Visual identity creation ',
-          'Media presence building'
+          'Optimizing executive profiles and leadership stories. ',
+
+          'Creating visual identities and building media presence. '
         ]
       },
       {
         id: 'content-strategy',
         title: 'Content Strategy & Creation',
-        description: 'Convert your expertise into influential thought leadership through.',
+        description: 'We convert your expertise into thought leadership with: ',
         content: [
-          'Content strategy development',
-          'Industry insights creation',
-          'Leadership content calendar',
-          'Performance analytics'
-        ]
+          "          Tailored content strategies and industry insights. ",
+          "          Leadership content calendars and performance analytics. "]
       },
       {
         id: 'thought-leadership',
         title: 'Thought Leadership Development',
-        description: 'We help establish you as a recognized industry voice & Thought Leader through:',
+        description: 'We establish you as an industry voice through:',
         content: [
-          'Speaking opportunity sourcing',
-          'Industry event positioning',
-          'Media relationship building',
-          'Expert network development'
-        ]
+
+
+          "Speaking opportunities, event positioning, and media outreach.",
+
+          "Building expert networks to expand your influence. "]
       }
     ],
     impactItems: [
@@ -98,61 +107,54 @@ const servicesData = {
       {
         id: 'strategic-foundation',
         title: 'Build Strategic Foundation',
-        description: 'We create comprehensive programs that drive real impact through:',
+        description: 'We craft impactful programs with:',
         content: [
-         
-          "Program strategy and goals alignment",
-          "AI-optimized templates", 
-          "Strategic content calendars and themes"
+          "Clear goals, content themes, and tailored strategies.",
+          "AI-driven tools for streamlined content creation.",
+          "Performance frameworks to measure success."
         ]
       },
 
       {
         id: 'governance',
         title: 'Governance & Guidelines',
-        description: 'We help you maintain brand integrity through:',
+        description: "We ensure brand integrity with:",
         content: [
-          'Design of guidelines and policies',
-          'Compliance frameworks',
-          'Approval Workflows'
+          "Policies, workflows, and compliance tools.",
+          "Scalable systems to align employee voices."
         ]
       },
       {
-        id: 'content-excellence',
-        title: 'Content Excellence',
-        description: 'We equip your teams with skills and tools for impactful content creation:',
+        id: 'drive-content-excellence ',
+        title: 'Drive Content Excellence ',
+        description: 'We empower teams with:',
         content: [
-          'Interactive storytelling workshops',
-          'Content creation training & toolkits',
-          'AI-powered content tools',
-          'Best practice frameworks',
-          'Platform mastery training',
-          'Personal brand alignment'
+          'Storytelling workshops and content training.',
+
+          'AI-powered tools and best practice resources.',
+
+          "Alignment with personal and professional brands. "
         ]
       },
       {
 
         id: 'engagement-activation',
-        title: 'Engagement & Activation',
-        description: 'We ensure sustainable program success through:',
+        title: 'Engage & Activate ',
+        description: 'We sustain success through: ',
         content: [
-          'Employee onboarding and training',
-          'Incentive Program Design',
-          'Content curation and sharing',
-          'Recognition programs',
-          'Performance optimization'
+          'Employee onboarding, training, and incentives.',
+          'Recognition systems to amplify participation. '
+
         ]
       },
       {
         id: 'impact',
-        title: 'Measuring Impact',
-        description: 'We track and optimize program performance via:',
+        title: 'Measure & Optimize ',
+        description: 'We track impact with: ',
         content: [
-          'Engagement analytics',
-          'Reach and influence metrics',
-          'ROI measurement',
-          'Program optimization',
-          'Success reporting'
+          "Analytics, ROI insights, and continuous improvements."
+
+
         ]
 
 
@@ -184,40 +186,43 @@ const servicesData = {
     description: "Top talents want more than just a job. They want purpose, growth, and an authentic workplace. Build a brand that resonates with both candidates and employees.",
     heroImage: employer_development,
     coreServices: [
+
+
+
       {
         id: 'evp-culture',
         title: 'EVP & Culture Strategy',
-        description: 'We build the foundation of your talent brand through:',
+        description: 'We lay the foundation of your talent brand through: ',
         content: [
-          'Core EVP development & positioning',
-          'Culture narrative crafting',
-          'Talent market analysis',
-          'Competitive analysis',
-          'Brand voice framework'
+          "Core EVP development and culture narratives. ",
+          "Talent market and competitive analysis. ",
+          "Brand voice frameworks for authentic messaging. "
         ]
-      },
+      }
+      ,
+
+
+
+
+
       {
         id: 'culture-storytelling',
         title: 'Culture Storytelling',
-        description: 'We transform your culture into compelling stories via:',
+        description: 'We bring your culture to life by: ',
         content: [
-          'Employee success stories',
-          'Culture video series',
-          'Targeted talent campaigns',
-          'Career site optimization',
-          'Authentic testimonials'
+          'Showcasing employee success stories and culture videos. ',
+          "Designing targeted campaigns and career site content.",
+          "Highlighting authentic testimonials. "
         ]
       },
       {
         id: 'candidate-experience',
         title: 'Candidate Experience',
-        description: 'We optimize every touchpoint via:',
+        description: 'We optimize touchpoints with: ',
         content: [
-          'Candidate Journey mapping and optimization',
-          'Strategic content planning',
-          'Alumni advocacy building',
-          'Onboarding narratives',
-          'Employee experience content'
+          "Journey mapping, strategic content, and onboarding narratives. ",
+
+          "Alumni advocacy and employee experience programs.  "
         ]
       }
 
@@ -228,13 +233,13 @@ const servicesData = {
     buttontxt: "Build Your Employer Brand",
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight  text-white">
 
-Ready to Build a Stand-Out 
-<span className='font-playfair italic  block mt-3'>Employer Brand?</span>
+      Ready to Build a Stand-Out
+      <span className='font-playfair italic  block mt-3'>Employer Brand?</span>
     </h1>,
   },
 
 
-    
+
   4: {
     h1: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
       <span className="font-playfair italic   pr-3 mt-4 ">
@@ -251,49 +256,47 @@ Ready to Build a Stand-Out
       {
         id: 'strategic-foundation',
         title: 'Strategic Foundation & Custom Community Design',
-        description: 'We design purposeful communities through:',
+        description: 'We design purposeful communities by: ',
         content: [
-          'Community strategy and a roadmap',
-          'Member journey mapping',
-          'Platform selection and setup',
-          'Value proposition development',
-          'Engagement frameworks'
+          " Developing strategies, roadmaps, and engagement frameworks.",
+
+          "Mapping member journeys and selecting the right platforms. ",
+
+          "Crafting compelling value propositions to drive participation. "
         ]
       },
       {
         id: 'knowledge-learning',
         title: 'Knowledge & Learning',
-        description: 'We deliver high-impact growth experiences via:',
+        description: 'We deliver growth experiences through: ',
         content: [
-          'Expert-led masterclasses',
-          'Peer mentorship programs',
-          'Best practice libraries',
-          'Resource sharing hubs',
-          'Knowledge-sharing systems'
+          "  Expert-led masterclasses, peer mentorships, and resource hubs.",
+
+          "Knowledge-sharing systems and best practice libraries. "
         ]
       },
       {
         id: 'events-networking',
         title: 'Events & Networking',
-        description: 'We create meaningful connections through:',
+        description: 'We create meaningful connections via: ',
         content: [
-          'Industry roundtables',
-          'Expert panels',
-          'Interactive workshops',
-          'Virtual meetups',
-          'Networking programs'
+          "Roundtables, expert panels, workshops, and virtual meetups. ",
+
+          "Networking programs that foster collaboration and trust. "
         ]
       },
       {
         id: 'community-management',
         title: 'Community Management',
-        description: 'We ensure sustainable growth via:',
+        description: 'We ensure sustainable growth by: ',
         content: [
-          'Engagement initiatives',
-          'Content curation',
-          'Member success programs',
-          'Performance analytics',
-          'Growth optimization'
+          'Driving engagement initiatives and curating impactful content. ',
+
+          'Managing member success programs and optimizing growth with analytics. '
+
+
+
+
         ]
       }
     ],
@@ -301,12 +304,12 @@ Ready to Build a Stand-Out
     impactItems: [
       "Network effects activated", "Knowledge multiplication", "Stronger industry presence", "Enhanced professional development"
     ],
-    buttontxt: "Break Your Community Today",
+    buttontxt: "Build Your Community Today",
     ctaDescription: "Let's create a personal brand strategy that sets you apart.",
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight text-white">
 
 
-Ready to Maximise <span className='font-playfair italic '>Community <span className=' block mt-3 font-playfair italic '>Network Effects?</span></span> 
+      Ready to Maximise <span className='font-playfair italic '>Community <span className=' block mt-3 font-playfair italic '>Network Effects?</span></span>
 
     </h1>,
   },
@@ -324,49 +327,43 @@ Ready to Maximise <span className='font-playfair italic '>Community <span classN
 
     coreServices: [
       {
-        id: 'strategy-development',
-        title: 'Strategy Development',
-        description: 'We build communication frameworks through:',
+        id: 'strategic-foundation',
+        title: 'Strategy Development ',
+        description: 'We create impactful communication frameworks by: ',
         content: [
-          'Designing organization-wide communication strategies',
-          'Optimizing channel effectiveness',
-          'Developing content guidelines',
-          'Building leadership communication plans',
-          'Creating message cascading systems'
+          "Designing organization-wide strategies and optimizing channels. ",
+          "Developing content guidelines and leadership communication plans. ",
+          "Building message cascading systems for seamless alignment. "
         ]
       },
       {
-        id: 'content-change',
-        title: 'Content & Change Management',
-        description: 'We drive engagement and clarity via:',
+        id: 'content-change-management ',
+        title: 'Content & Change Management ',
+        description: 'We drive engagement and clarity through: ',
         content: [
-          'Strategic campaign creation',
-          'Change management communications',
-          'Culture initiative programs',
-          'Crisis response protocols'
+          "Strategic campaigns and change management communications. ",
+
+          "Culture initiatives and crisis response protocols."
         ]
       },
       {
         id: 'channel-optimization',
         title: 'Channel Optimization',
-        description: 'We maximize communication impact through:',
+        description: 'We enhance communication impact by: ',
         content: [
-          'Channel effectiveness audit',
-          'Platform integration',
-          'Message delivery optimization',
-          'Analytics and measurement'
+          'Auditing channel effectiveness and integrating platforms. ',
+
+          "Optimizing message delivery and tracking with analytics. "
         ]
       },
+
       {
         id: 'resource-development',
         title: 'Resource Development',
-        description: 'We equip your teams for success with:',
+        description: 'We equip teams with tools for success, including: ',
         content: [
-          'Communication toolkits',
-          'Best practice guides',
-          'Template libraries',
-          'Training materials',
-          'Leadership resources'
+          'Communication toolkits, guides, templates, and training materials.',
+          'Leadership resources to strengthen alignment and engagement. '
         ]
       }
     ],
@@ -377,7 +374,7 @@ Ready to Maximise <span className='font-playfair italic '>Community <span classN
     ctaDescription: "Let's create a personal brand strategy that sets you apart.",
     ctaTitle: <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight text-white">
 
-Ready to Transform Your <span className='font-playfair italic  '>Internal <span className='block mt-3 font-playfair italic '>Communications?</span> </span>
+      Ready to Transform Your <span className='font-playfair italic  '>Internal <span className='block mt-3 font-playfair italic '>Communications?</span> </span>
     </h1>,
   }
   ,

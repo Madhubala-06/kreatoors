@@ -132,7 +132,8 @@ const ContactForm = () => {
                                     </div>
                                     <button
                                         type="submit"
-                                        className="w-full md:w-1/4  bg-primary-gradient text-white py-3 rounded-full transition duration-200"
+                                        className="w-full md:w-1/4  bg-primary-gradient text-white py-3 rounded-full transition-all duration-700 ease-out delay-400
+                               hover:scale-105"
                                     >
                                         Submit
                                     </button>

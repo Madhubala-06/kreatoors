@@ -4,6 +4,7 @@ import tickmark from '../../assets/images/footer-tick-icon.png';
 import Linkedin from '../../assets/images/akar-icons_linkedin-fill.png'
 import Instagram from '../../assets/images/akar-icons_instagram-fill.png'
 import Twitter from '../../assets/images/prime_twitter.png'
+import Logo from './Logo';
 const Footer = () => {
   const [email, setEmail] = useState('');
 
@@ -11,8 +12,8 @@ const Footer = () => {
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services/1' },
     { name: 'About us', href: '/aboutus' },
-    { name: 'AI Platform', href: '#' },
-    { name: 'Blogs', href: '#' },
+    { name: 'AI Platform', href: '/aiplatform' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact us', href: '/contactus' }
   ];
 
@@ -70,7 +71,8 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="  bg-primary-gradient text-white px-6 py-3 rounded-full transition-colors"
+                  className="  bg-primary-gradient text-white px-6 py-3 rounded-full transition-all duration-700 ease-out delay-400
+                               hover:scale-105"
                 >
                   Subscribe
                 </button>
@@ -87,7 +89,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
             {/* Logo */}
             <div className="flex items-center">
-              <img src={logo} alt="kreatoors-logo" className="h-14 w-14" />
+              {/* <img src={logo} alt="kreatoors-logo" className="h-14 w-14" /> */}
+             <Logo/>
             </div>
 
             {/* Navigation */}
@@ -126,7 +129,7 @@ const Footer = () => {
               © 2024 AI Loves HR. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="https://kreatoors.com/privacy-policy/" className="text-sm text-gray-600 hover:text-gray-900">
+              <a href="/privacypolicy" className="text-sm text-gray-600 hover:text-gray-900">
                 Privacy Policy
               </a>
               <a href="#" className="text-sm text-gray-600 hover:text-gray-900">

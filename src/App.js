@@ -5,6 +5,7 @@ import Footer from './components/common/Footer';
 import ServicesPage from './components/pages/Services/ServicePage';
 import AboutPage from './components/pages/Aboutus/About'
 import Contactus from './components/pages/contactus/contactus'
+import PrivacyPolicy from './components/pages/privacypolicy/PrivacyPolicy';
 function AppContent() {
   const location = useLocation();
   const isServicesPage = location.pathname.startsWith('/services');
@@ -20,8 +21,7 @@ function AppContent() {
         <Route path="/services/:index" element={<ServicesPage />} />
         <Route path="/aboutus" element={<AboutPage />} />
         <Route path="/contactus" element={<Contactus />} />
-
-        
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </div>
