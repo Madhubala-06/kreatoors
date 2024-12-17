@@ -1,3 +1,4 @@
+import { tab } from '@testing-library/user-event/dist/tab';
 import React, { useState } from 'react';
 
 const AudienceSection = () => {
@@ -25,7 +26,7 @@ const AudienceSection = () => {
         'Communications Integration: Align internal and external messaging',
         'Platform Optimization: Leverage technology for scalable engagement'
       ],
-      ctaText: 'Amplify Your Brand Impact'
+      ctaText: 'Book Free Consultation'
     },
 
 
@@ -141,7 +142,7 @@ const AudienceSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book Free Consultation
+               {tabContent[activeTab].ctaText}
               </a>
 
             </button>

@@ -83,7 +83,7 @@ export default function Header({ isServices }) {
             {/* <KrLogoWithFlower /> */}
             <Logo />
 
-            <ul className="hidden lg:flex items-center  space-x-4 xl:space-x-8 font-normal text-lg">
+            <ul className="hidden xl:flex items-center  space-x-4 xl:space-x-8 font-normal text-lg">
               {menuItems.map((item) => (
                
                 <li key={item.path}>
@@ -101,7 +101,7 @@ export default function Header({ isServices }) {
               ))}
             </ul>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <Button className="bg-[#6B5B95] text-white px-6 py-2 rounded-full hover:bg-[#5A4A84]  transition-all duration-700 ease-out delay-400
                                hover:scale-105">
               Book Free Discovery Call
@@ -110,7 +110,7 @@ export default function Header({ isServices }) {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2"
+            className="xl:hidden p-2"
             onClick={toggleMobileMenu}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ export default function Header({ isServices }) {
         </nav>
 
         {isMobileMenuOpen && (
-          <div className="absolute left-0 right-0 mt-5 lg:hidden">
+          <div className="absolute left-0 right-0 mt-5 xl:hidden">
             <div className="bg-white shadow-lg mx-5 rounded-2xl ">
               <ul className="py-2  ">
                 {menuItems.map((item) => (

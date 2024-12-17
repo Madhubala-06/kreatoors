@@ -1,10 +1,13 @@
 import React from 'react';
 import RightArrow from '../../../assets/images/Arrow 1.svg'
 
-
-const ComingSoonSection = () => {
+const ComingSoonSection = ({ isAboutUs }) => {
   return (
-    <div className="w-full bg-white py-20  px-4 md:px-8 rounded-t-[50px]">
+    <div
+      className={`w-full ${
+        isAboutUs ? 'bg-cta-gradient' : 'bg-white'
+      } py-20 px-4 md:px-8 rounded-t-[50px]`}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="relative bg-primary-gradient rounded-3xl p-8 md:p-12 flex md:gap-10">
           <div className="max-w-2xl">

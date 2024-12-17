@@ -36,8 +36,8 @@ const EGCSection = () => {
   return (
     <>
       {/* EGC Section */}
-      <div className="w-full bg-blue-custom-400">
-        <section className="max-w-6xl rounded-2xl p-8 lg:p-8 mx-auto">
+      <div className="w-full bg-blue-custom-400 py-16">
+        <section className="max-w-6xl rounded-2xl px-8 lg:px-8 mx-auto">
           <h2 className="text-3xl lg:text-4xl mb-8">
             What's <span className="font-playfair">Employee Generated Content (EGC)?</span>
           </h2>
@@ -58,8 +58,8 @@ const EGCSection = () => {
       </div>
 
       {/* Corporate Influencing Section */}
-      <div className="bg-white">
-        <section className="rounded-2xl p-8 lg:p-8 max-w-6xl mx-auto">
+      <div className="bg-white py-16">
+        <section className="rounded-2xl px-8 lg:px-8 max-w-6xl mx-auto">
           <h2 className="text-3xl lg:text-4xl mb-8">
             What is <span className="font-playfair">Corporate Influencing?</span>
           </h2>

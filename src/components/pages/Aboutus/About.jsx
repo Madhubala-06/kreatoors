@@ -335,7 +335,8 @@ const MissionFounderSection = () => {
       <JoinOurTeam />
 
 
-      <CommingSoonSection />
+      <CommingSoonSection isAboutUs={true} />
+
 
     </div>
 
