@@ -29,7 +29,7 @@ const BrandSolutionsLanding = () => {
     {
       id: 3,
       title: "Employer Brand Development",
-      buttonText: "Launch Your Advocacy Program",
+      buttonText: "Build Your Employer Brand",
       icon: brand_development
     },
     {

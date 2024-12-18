@@ -6,7 +6,8 @@ const ContactForm = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
-        phone: '',
+        companyname: '',
+        job:'',
         message: ''
     });
 
@@ -37,6 +38,70 @@ const ContactForm = () => {
                 <div className='bg-white  py-16 px-5'>
 
                     <div className="grid md:grid-cols-2 gap-12 max-w-6xl  mx-auto">
+                    <div>
+    <div className="bg-blue-custom-400 px-7 py-7 rounded-2xl">
+        <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+                <input
+                    name="fullName"
+                    placeholder="Enter full name"
+                    className="w-full p-3 rounded-lg focus:border-transparent"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter email address"
+                    className="w-full p-3 rounded-lg focus:border-transparent"
+                    value={formData.email}
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <input
+                    name="message"
+                    placeholder="Company Name"
+                    className="w-full p-3 rounded-lg focus:border-transparent"
+                    value={formData.companyname}
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <input
+                    name="message"
+                    placeholder="Job Title"
+                    className="w-full p-3 rounded-lg focus:border-transparent"
+                    value={formData.job}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <textarea
+                    name="message"
+                    placeholder="Enter message"
+                    className="w-full p-3 rounded-lg focus:border-transparent min-h-[150px]"
+                    value={formData.message}
+                    onChange={handleChange}
+                />
+            </div>
+            
+            {/* Centering the Submit button */}
+            <div className="flex justify-center">
+                <button
+                    type="submit"
+                    className="w-full md:w-1/4 bg-primary-gradient text-white py-3 rounded-full transition-all duration-700 ease-out delay-400 hover:scale-105"
+                >
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
                         <div>
                             <h2 className="text-4xl "><span className='font-playfair'>Contact</span> Us</h2>
                             <p className="text-sub-gray mb-8 my-4">We're Just a Few Clicks Away—Let's Connect!</p>
@@ -72,9 +137,7 @@ const ContactForm = () => {
                                    
                                     <div className="flex space-x-4">
 
-                                    <a href="#" className="text-blue-600 hover:text-blue-700">
-                                        <img src={instagram} className=' h-6 w-6 mx-auto' ></img>
-                                        </a>
+                                    
 
                                         <a target='_blank' href=" https://www.linkedin.com/company/kreatoors/posts/?feedView=all" className="text-pink-500 hover:text-pink-600">
                                         <img src={linkedIn} className=' h-6 w-6 mx-auto' ></img>
@@ -86,60 +149,6 @@ const ContactForm = () => {
                             </div>
                         </div>
 
-                        <div>
-                            <div className=" bg-blue-custom-400  px-7 py-7 rounded-2xl ">
-                                <form onSubmit={handleSubmit} className="space-y-4">
-                                    <div>
-                                        <input
-                                            name="fullName"
-                                            placeholder="Enter full name"
-                                            className="w-full p-3 rounded-lg  focus:border-transparent"
-                                            value={formData.fullName}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div>
-                                        <input
-                                            name="email"
-                                            type="email"
-                                            placeholder="Enter email address"
-                                            className="w-full p-3 rounded-lg  focus:border-transparent"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="flex">
-                                        <select className="p-3 rounded-l-lg   bg-white  focus:border-transparent">
-                                            <option className=' text-sub-gray'>+44</option>
-                                        </select>
-                                        <input
-                                            name="phone"
-                                            type="tel"
-                                            placeholder="Enter mobile no."
-                                            className="w-full p-3 rounded-r-lg  focus:border-transparent"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div>
-                                        <textarea
-                                            name="message"
-                                            placeholder="Enter message"
-                                            className="w-full p-3 rounded-lg  focus:border-transparent min-h-[150px]"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <button
-                                        type="submit"
-                                        className="w-full md:w-1/4  bg-primary-gradient text-white py-3 rounded-full transition-all duration-700 ease-out delay-400
-                               hover:scale-105"
-                                    >
-                                        Submit
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
