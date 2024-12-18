@@ -25,7 +25,7 @@ const uploadResumeToCloudinary = async (file) => {
   const formData = new FormData();
   formData.append('file', file);
   formData.append('upload_preset', 'Resume_Kreatoors');
-  
+
   formData.append('api_key', '945618263357478');
   formData.append('timestamp', Math.round((new Date()).getTime() / 1000));
 
@@ -72,7 +72,7 @@ const JoinOurTeam = () => {
   });
 
   const [uploadedFileName, setUploadedFileName] = useState('');
-
+  const [isAgreed, setIsAgreed] = useState(false);
   const countryCodes = [
     { code: '+1', country: 'USA/Canada' },
     { code: '+44', country: 'UK' },
@@ -103,31 +103,31 @@ const JoinOurTeam = () => {
     const file = e.target.files[0];
     if (file) {
       setFormData({ ...formData, resume: file });
-      setUploadedFileName(file.name); 
+      setUploadedFileName(file.name);
     }
   };
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
-    
+    e.preventDefault();
+
     try {
       if (!formData.resume) {
         throw new Error('Please upload a resume');
       }
 
       const resumeUrl = await uploadResumeToCloudinary(formData.resume);
-      
+
       const docRef = await addDoc(collection(db, 'Applications'), {
         fullName: formData.fullName,
         email: formData.email,
         mobile: formData.countryCode + formData.mobile,
         role: formData.role,
         text: formData.text,
-        resumeUrl: resumeUrl, 
+        resumeUrl: resumeUrl,
         createdAt: serverTimestamp(),
       });
 
       console.log('Application submitted successfully with ID:', docRef.id);
-      
+
       setFormData({
         fullName: '',
         email: '',
@@ -181,22 +181,40 @@ const JoinOurTeam = () => {
               required
             />
 
-            <div className="flex gap-1 md:gap-2 w-full">
-              <select
-                className="md:w-32 p-3 rounded-lg bg-white text-sub-gray"
-                value={formData.countryCode}
-                onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
-              >
-                {countryCodes.map((country) => (
-                  <option key={country.code} value={country.code}>
-                    {country.code} {country.country}
-                  </option>
-                ))}
-              </select>
+            <div className="flex w-full">
+              <div className="relative  ">
+                <select
+                  className="p-3  rounded-l-lg bg-white text-sub-gray  mr-9 focus:outline-none appearance-none w-full"
+                  value={formData.countryCode}
+                  onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                >
+                  {countryCodes.map((country) => (
+                    <option key={country.code} value={country.code}>
+                      {country.code}
+                    </option>
+                  ))}
+                </select>
+                {/* Chevron Icon */}
+                <div className="absolute inset-y-0 right-1 flex items-center pointer-events-none text-gray-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="black"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
+
+                </div>
+              </div>
+
+
+
+
               <input
                 type="tel"
                 placeholder="Enter mobile no."
-                className="w-4/5 p-3 rounded-lg bg-white text-sub-gray"
+                className="w-full p-3 bg-white text-sub-gray rounded-r-lg"
                 value={formData.mobile}
                 onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                 required
@@ -204,17 +222,18 @@ const JoinOurTeam = () => {
             </div>
 
             <select
-              className="w-full p-3 rounded-lg bg-white text-sub-gray"
-              value={formData.role}
-              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-              required
-            >
-              {roleOptions.map((role) => (
-                <option key={role.value} value={role.value}>
-                  {role.label}
-                </option>
-              ))}
-            </select>
+  className="w-full p-3 rounded-lg bg-white text-sub-gray" 
+  value={formData.role}
+  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+  required
+>
+  {roleOptions.map((role) => (
+    <option key={role.value} value={role.value} className="text-sub-gray"> 
+      {role.label}
+    </option>
+  ))}
+</select>
+
 
             <textarea
               placeholder="Tell us in few words why you would be a great addition to our team?"
@@ -257,6 +276,8 @@ const JoinOurTeam = () => {
               <input
                 type="checkbox"
                 id="agree"
+                value={isAgreed}
+                onClick={()=>{setIsAgreed(true)}}
                 required
                 className="h-4 w-4 rounded border-gray-200 border-2 checked:bg-primary-gradient checked:border-transparent focus:ring-0 focus:ring-offset-0"
               />
@@ -271,7 +292,8 @@ const JoinOurTeam = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="px-6 py-3 bg-primary-gradient text-white rounded-full transition-all duration-700 ease-out hover:scale-105"
+                disabled={!isAgreed}
+                className={`px-6 py-3 bg-primary-gradient text-white rounded-full transition-all duration-700 ease-out hover:scale-105  disabled:cursor-not-allowed    disabled:opacity-60`}
               >
                 Submit
               </button>
