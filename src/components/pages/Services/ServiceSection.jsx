@@ -32,7 +32,7 @@ const ServiceSection = ({
         window.scrollTo({
             top: 0,
             behavior: 'instant',
-          });
+        });
         navigate('/contactus');
     };
 
@@ -121,9 +121,12 @@ const ServiceSection = ({
                                             {service.content && (
                                                 <div className="px-10 pb-6 space-y-2">
                                                     {service.content.map((item, index) => (
-                                                        <p key={index} className="text-sub-gray pl-4">
-                                                            • {item}
-                                                        </p>
+                                                        <div key={index} className="flex  max-w-lg  md:max-w-sm">
+                                                            <span className="text-sub-gray mr-2">•</span>
+                                                            <p className="text-sub-gray">
+                                                                {item}
+                                                            </p>
+                                                        </div>
                                                     ))}
                                                 </div>
                                             )}
@@ -184,7 +187,7 @@ const ServiceSection = ({
                 image: internal_communication,
                 link: "/services/5"
             },
-            
+
 
 
         ];
@@ -344,15 +347,8 @@ const ServiceSection = ({
         const [isVisible, setIsVisible] = useState(false);
         const sectionRef = useRef(null);
 
-        const navigate = useNavigate();
 
-        const handleClick = () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'instant',
-              });
-            navigate('/contactus');
-        };
+
         useEffect(() => {
             const observer = new IntersectionObserver(
                 ([entry]) => {
@@ -405,22 +401,25 @@ const ServiceSection = ({
                         >
                             Connect with our experts to find the right solution for your business.
                         </p>
+                        <a href='https://calendly.com/coachingwitharzo/free-discovery-call' target='_blank'>
+                            <button
 
-                        <button
-                            onClick={handleClick}
-                            className={`
+                                className={`
                                 bg-white text-blue-custom-700 px-6 py-3.5 
                                 rounded-full font-semibold hover:bg-purple-50 
                                 transition-all duration-700 ease-out delay-400
                                hover:scale-105 
                                 ${isVisible
-                                    ? 'opacity-100 translate-y-0 scale-100'
-                                    : 'opacity-0 translate-y-5 scale-95'
-                                }
+                                        ? 'opacity-100 translate-y-0 scale-100'
+                                        : 'opacity-0 translate-y-5 scale-95'
+                                    }
                             `}
-                        >
-                            Book Free Consultation 
-                        </button>
+                            >
+
+
+                                Book Free Consultation
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

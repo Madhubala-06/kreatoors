@@ -41,7 +41,7 @@ const BrandSolutionsLanding = () => {
     {
       id: 5,
       title: "Internal Communications",
-      buttonText: "Build Your Silos",
+      buttonText: "Break Your Silos",
       icon: internal_communications
     },
     {
@@ -87,15 +87,16 @@ const BrandSolutionsLanding = () => {
             return (
               <div
                 key={solution.id}
-                className="relative overflow-hidden rounded-xl transition-all duration-500 ease-in-out group"
+                onClick={() => handleServiceClick(solution.id)}
+                className="relative cursor-pointer overflow-hidden rounded-xl transition-all duration-500 ease-in-out group"
               >
                 <div className="absolute inset-0 bg-white transition-opacity duration-500 ease-in-out" />
                 <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
 
                 {/* Content */}
-                <div className="relative p-7 h-full flex flex-col justify-between z-10">
+                <div className="relative p-7 h-full flex flex-col justify-between z-10" >
                   <div className="h-2/3">
-                    <div className=" bg-blue-custom-400 p-2 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 transform transition-transform duration-300 ease-in-out group-hover:scale-105">
+                    <div  className=" bg-blue-custom-400 p-2 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 transform transition-transform duration-300 ease-in-out group-hover:scale-105">
                       <img
                         src={solution.icon}
                         alt={solution.icon}
@@ -112,7 +113,7 @@ const BrandSolutionsLanding = () => {
                     </p>
                     <div 
                       className="bg-blue-custom-800 p-2 cursor-pointer rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 transform translate-x-4 transition-all duration-500 ease-in-out group-hover:translate-x-0"
-                      onClick={() => handleServiceClick(solution.id)}
+                      
                     >
                       <img
                         src={arrow}

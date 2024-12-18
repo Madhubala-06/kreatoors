@@ -4,7 +4,7 @@ import Egc2 from '../../../assets/images/egc2.png';
 
 const Section = ({ title, description, impacts, image, reverse, bgColor }) => {
   return (
-    <div className={`flex flex-col lg:flex-row gap-8 justify-evenly items-center ${bgColor} rounded-2xl`}>
+    <div className={`flex flex-col lg:flex-row gap-8 justify-evenly items-center p-5 md:p-0 ${bgColor} rounded-2xl`}>
       {reverse && (
         <div className="lg:w-2/5 order-2 lg:order-1">
           <img src={image} alt={title} className="rounded-lg w-full object-cover" />
@@ -17,15 +17,25 @@ const Section = ({ title, description, impacts, image, reverse, bgColor }) => {
           <h3 className="text-blue-custom-600 font-medium mb-3">Impact:</h3>
           <ul className="space-y-3 text-gray-700">
             {impacts.map((impact, index) => (
-              <li key={index} className="flex items-start gap-2">• {impact}</li>
+
+              <li key={index} className="flex  ">
+              <span className="text-sub-gray mr-2">•</span>
+              <p className="text-sub-gray">
+              {impact}
+              </p>
+          </li>
             ))}
+
+
+
+
           </ul>
         </div>
       </div>
 
       {!reverse && (
         <div className="lg:w-2/5">
-          <img src={image} alt={title} className="rounded-lg w-full object-cover" />
+          <img src={image} alt={title} className="rounded-lg w-full object-cover p-5 sm:p-10" />
         </div>
       )}
     </div>
@@ -36,7 +46,7 @@ const EGCSection = () => {
   return (
     <>
       {/* EGC Section */}
-      <div className="w-full bg-blue-custom-400 py-16">
+      <div className="w-full bg-blue-custom-400 py-20">
         <section className="max-w-6xl rounded-2xl px-8 lg:px-8 mx-auto">
           <h2 className="text-3xl lg:text-4xl mb-8">
             What's <span className="font-playfair">Employee Generated Content (EGC)?</span>
@@ -58,7 +68,7 @@ const EGCSection = () => {
       </div>
 
       {/* Corporate Influencing Section */}
-      <div className="bg-white py-16">
+      <div className="bg-white py-20">
         <section className="rounded-2xl px-8 lg:px-8 max-w-6xl mx-auto">
           <h2 className="text-3xl lg:text-4xl mb-8">
             What is <span className="font-playfair">Corporate Influencing?</span>

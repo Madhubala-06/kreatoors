@@ -84,7 +84,7 @@ const ValueStats = () => {
     navigate('/contactus');
   };  
   const [ref, isInView] = useInView();
-  const animatedValue = useCounter(92, 3000, isInView);
+  const animatedValue = useCounter(92, 1000, isInView);
 
   return (
     <section className="w-full bg-white py-16" ref={ref}>

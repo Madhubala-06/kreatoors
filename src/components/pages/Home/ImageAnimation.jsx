@@ -107,7 +107,7 @@ const SlidingImages = () => {
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="hidden 2xl:block">
+      <div className="hidden xl:block">
         {redistributedRows.map((row, index) => (
           <ImageRow
             key={`redistributed-${index}`}
@@ -117,7 +117,7 @@ const SlidingImages = () => {
         ))}
       </div>
 
-      <div className="block 2xl:hidden">
+      <div className="block xl:hidden">
         {imageRows.map((row, index) => (
           <ImageRow
             key={`regular-${index}`}

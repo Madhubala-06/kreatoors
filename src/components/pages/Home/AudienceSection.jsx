@@ -2,7 +2,7 @@ import { tab } from '@testing-library/user-event/dist/tab';
 import React, { useState } from 'react';
 
 const AudienceSection = () => {
-  const [activeTab, setActiveTab] = useState('Growth & Marketing Teams');
+  const [activeTab, setActiveTab] = useState('Marketing & Communications Teams');
   const [isContentVisible, setIsContentVisible] = useState(true);
 
   const handleTabChange = (tab) => {
@@ -17,8 +17,8 @@ const AudienceSection = () => {
 
   const tabContent = {
 
-    'Growth & Marketing Teams': {
-      title: 'Growth & Marketing Teams',
+    'Marketing & Communications Teams': {
+      title: 'Marketing & Communications Teams',
       description: 'Drive growth and trust through authentic employee stories. Our services & solutions helps expand your reach and deliver real business impact.',
       features: [
         'Strategic Content Programs: Implement company-wide content frameworks',
@@ -92,7 +92,7 @@ const AudienceSection = () => {
           Who Do We <span className="font-playfair italic  ">Empower?</span>
         </h1>
 
-        <div className="flex flex-wrap justify-evenly   my-10  bg-blue-custom-400 p-4 rounded-full">
+        <div className="flex sm:flex-wrap flex-row justify-evenly   my-10  bg-blue-custom-400 py-4 px-3 rounded-full">
           {Object.keys(tabContent).map((tab) => (
             <button
               key={tab}
@@ -142,7 +142,7 @@ const AudienceSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-               {tabContent[activeTab].ctaText}
+               Book Free Consultation
               </a>
 
             </button>

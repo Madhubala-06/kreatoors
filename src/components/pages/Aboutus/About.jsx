@@ -9,18 +9,63 @@ import creatorship from '../../../assets/images/aboutus/mingcute_content-ai-fill
 import growth from '../../../assets/images/aboutus/uil_arrow-growth.png'
 import tick from '../../../assets/images/aboutus/tick.png'
 
-import upload from '../../../assets/images/upload.png'
-import linkedIn from '../../../assets/images/linkedIn.png'
-import { db, serverTimestamp, collection, addDoc, storage } from '../../../firebase';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
+import { db, serverTimestamp, collection, addDoc } from '../../../firebase';
+
+
+import axios from 'axios';
+
+
+
+const uploadResumeToCloudinary = async (file) => {
+  if (!file) {
+    throw new Error('No file provided');
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', 'Resume_Kreatoors');
+  
+  formData.append('api_key', '945618263357478');
+  formData.append('timestamp', Math.round((new Date()).getTime() / 1000));
+
+  try {
+    const response = await axios.post(
+      `https://api.cloudinary.com/v1_1/dnpgsumvt/raw/upload`,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        validateStatus: (status) => {
+          return status >= 200 && status < 300;
+        }
+      }
+    );
+
+    if (response.data && response.data.secure_url) {
+      console.log('Upload successful:', response.data.secure_url);
+      return response.data.secure_url;
+    } else {
+      throw new Error('Upload successful but no URL received');
+    }
+
+  } catch (error) {
+    console.error('Cloudinary upload error details:', {
+      message: error.message,
+      response: error.response?.data,
+      status: error.response?.status
+    });
+    throw new Error(`Upload to Cloudinary failed: ${error.message}`);
+  }
+};
 const JoinOurTeam = () => {
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     mobile: '',
     countryCode: '+44',
-    linkedinUrl: '',
     role: '',
     resume: null,
     text: ''
@@ -54,85 +99,46 @@ const JoinOurTeam = () => {
     document.getElementById('resumeUpload').click();
   };
 
-
-
-
-
-
-
-  
-
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (file.size > 10 * 1024 * 1024) {
-        alert('File size must be less than 10MB');
-        return;
-      }
-      
-      const validTypes = ['.pdf', '.doc', '.docx'];
-      const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
-      if (!validTypes.includes(fileExtension)) {
-        alert('Please upload a PDF or Word document');
-        return;
-      }
-
-      setFormData(prev => ({ ...prev, resume: file }));
-      setUploadedFileName(file.name);
+      setFormData({ ...formData, resume: file });
+      setUploadedFileName(file.name); 
     }
   };
-
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
+    e.preventDefault(); 
+    
     try {
-      let downloadURL = '';
-      
-      if (formData.resume) {
-        const storageRef = ref(storage, `resumes/${Date.now()}-${formData.resume.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, formData.resume);
-
-        await new Promise((resolve, reject) => {
-          uploadTask.on(
-            'state_changed',
-            (snapshot) => {
-              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              console.log('Upload progress: ' + progress + '%');
-            },
-            (error) => {
-              console.error('Error uploading file:', error);
-              reject(error);
-            },
-            async () => {
-              downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-              resolve();
-            }
-          );
-        });
+      if (!formData.resume) {
+        throw new Error('Please upload a resume');
       }
 
-      await addDoc(collection(db, 'applications'), {
+      const resumeUrl = await uploadResumeToCloudinary(formData.resume);
+      
+      const docRef = await addDoc(collection(db, 'Applications'), {
         fullName: formData.fullName,
         email: formData.email,
         mobile: formData.countryCode + formData.mobile,
-        linkedinUrl: formData.linkedinUrl,
         role: formData.role,
         text: formData.text,
-        resume: downloadURL,
+        resumeUrl: resumeUrl, 
         createdAt: serverTimestamp(),
       });
 
+      console.log('Application submitted successfully with ID:', docRef.id);
+      
       setFormData({
         fullName: '',
         email: '',
         mobile: '',
         countryCode: '+44',
-        linkedinUrl: '',
         role: '',
         resume: null,
         text: ''
       });
       setUploadedFileName('');
+
       alert('Application submitted successfully!');
 
     } catch (error) {
@@ -140,6 +146,8 @@ const JoinOurTeam = () => {
       alert('Error submitting application. Please try again.');
     }
   };
+
+
 
   return (
     <div className="w-full max-w-6xl px-5 md:mx-auto py-16 bg-white">
@@ -155,6 +163,7 @@ const JoinOurTeam = () => {
 
         <div className="w-full flex flex-col items-center">
           <form onSubmit={handleSubmit} className="space-y-4 p-3 md:px-6 py-6 bg-blue-custom-400 rounded-2xl w-full max-w-4xl">
+            {/* Form Inputs */}
             <input
               type="text"
               placeholder="Enter full name"
@@ -163,7 +172,6 @@ const JoinOurTeam = () => {
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
               required
             />
-
             <input
               type="email"
               placeholder="Enter email address"
@@ -174,7 +182,7 @@ const JoinOurTeam = () => {
             />
 
             <div className="flex gap-1 md:gap-2 w-full">
-              <select 
+              <select
                 className="md:w-32 p-3 rounded-lg bg-white text-sub-gray"
                 value={formData.countryCode}
                 onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
@@ -216,7 +224,7 @@ const JoinOurTeam = () => {
               required
             />
 
-            <div 
+            <div
               onClick={handleFileClick}
               className="border-2 border-blue-custom-600 border-dashed rounded-lg p-8 text-center bg-white cursor-pointer hover:bg-gray-50 transition-colors"
             >
@@ -236,11 +244,13 @@ const JoinOurTeam = () => {
               <input
                 id="resumeUpload"
                 type="file"
+                name="resume"  // Added name attribute
                 className="hidden"
                 onChange={handleFileUpload}
                 accept=".pdf,.doc,.docx"
                 required
               />
+
             </div>
 
             <div className="flex items-center space-x-2 py-5">
@@ -254,7 +264,7 @@ const JoinOurTeam = () => {
                 I agree to the
                 <span className="font-bold text-blue-custom-600 px-1">Privacy Policy</span>
                 and
-                <span className="font-bold text-blue-custom-600 px-1">Terms and Conditions</span>.
+                <span className="font-bold text-blue-custom-600 px-1">Terms and Conditions</span> .
               </label>
             </div>
 
@@ -272,7 +282,6 @@ const JoinOurTeam = () => {
     </div>
   );
 };
-
 
 
 const MissionFounderSection = () => {

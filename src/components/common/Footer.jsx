@@ -5,6 +5,13 @@ import Linkedin from '../../assets/images/akar-icons_linkedin-fill.png'
 import Instagram from '../../assets/images/akar-icons_instagram-fill.png'
 import Twitter from '../../assets/images/prime_twitter.png'
 import Logo from './Logo';
+
+import { collection, addDoc, serverTimestamp  , db} from '../../firebase'
+
+
+
+
+
 const Footer = () => {
   const [email, setEmail] = useState('');
 
@@ -19,14 +26,26 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'LinkedIn', icon: Linkedin, href: ' https://www.linkedin.com/company/kreatoors/posts/?feedView=all' },
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' }
+   
   ];
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    // Handle subscription logic here
-    console.log('Subscribing email:', email);
+
+    if (email) {
+      try {
+        await addDoc(collection(db, 'NeweletterSubscription'), {
+          email: email,
+          timestamp: serverTimestamp(),
+        });
+
+        setEmail('');
+        alert('Subscribed successfully!');
+      } catch (error) {
+        console.error('Error subscribing:', error);
+        alert('There was an error, please try again later.');
+      }
+    }
   };
 
   return (
@@ -59,7 +78,7 @@ const Footer = () => {
           {/* Newsletter subscription */}
           <div className="w-full lg:w-auto">
             <div className="bg-white/90 md:p-6 rounded-lg">
-              <h2 className="text-xl font-semibold mb-4">Subscribe to our Newsletter!</h2>
+              <h2 className="text-xl  font-medium mb-4">Subscribe to our Newsletter!</h2>
               <form onSubmit={handleSubscribe} className="space-y-4 pt-5">
                 <input
                   type="email"
@@ -126,15 +145,13 @@ const Footer = () => {
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-600 mb-4 md:mb-0">
-              © 2024 AI Loves HR. All rights reserved.
+            © 2024 AI Loves HR Ltd. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a href="/privacypolicy" className="text-sm text-gray-600 hover:text-gray-900">
                 Privacy Policy
               </a>
-              <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
-                Terms and Conditions
-              </a>
+              
             </div>
           </div>
         </div>

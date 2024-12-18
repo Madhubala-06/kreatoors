@@ -7,6 +7,7 @@ import AudienceSection from './AudienceSection'
 import ComingSoonSection from './Commingsoon'
 import Stats from './stats'
 export default function Home() {
+  
   const brandSolutionsRef = useRef(null);
 
   const handleCTAClick = () => {
