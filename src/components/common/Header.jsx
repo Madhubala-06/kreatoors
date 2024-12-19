@@ -146,7 +146,7 @@ export default function Header({ isServices }) {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="xl:hidden bg-white rounded-b-2xl">
-            <div className="px-5 py-4 space-y-3">
+            <div className="px-5 py-4 space-y-3 mt-4">
               {menuItems.map((item, index) => (
                 item.name === 'Services' ? (
                   <div key={index}>
