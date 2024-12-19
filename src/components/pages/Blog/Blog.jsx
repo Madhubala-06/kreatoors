@@ -45,6 +45,7 @@ const blogs = [
         image: four,
     },
     {
+        id:"roi",
         title: "The ROI of Employee Stories: Real Numbers Behind Successful Advocacy Programs",
         date: "November 19, 2024",
         image: five,
@@ -122,7 +123,7 @@ const BlogPage = () => {
                                     />
                                     <div className="p-4">
                                         <p className="text-sm  text-sub-gray">{blog.date}</p>
-                                        <h2 className="text-lg font-semibold  mt-2">{blog.title}</h2>
+                                        <h2 className="text-lg  font-medium  mt-2">{blog.title}</h2>
                                     </div>
                                 </div>
                             </Link>

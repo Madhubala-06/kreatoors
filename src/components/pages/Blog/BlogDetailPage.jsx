@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { BlogHeader } from './BlogHeader';
 import BlogOne from './Blogone';
-
+import BlogThree from './BlogThree';
 import BlogTwo from './BlogTwo';
 export const BlogDetailPage = () => {
   const { slug } = useParams();
@@ -16,6 +16,10 @@ export const BlogDetailPage = () => {
     case 'employee-to-brand-mmbassador':
       BlogContentComponent = BlogTwo;
       break;
+      case 'roi':
+        BlogContentComponent = BlogThree;
+        break;
+      
     default:
       BlogContentComponent = () => <div>Blog post not found</div>;
       break;
