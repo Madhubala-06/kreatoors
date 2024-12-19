@@ -7,7 +7,8 @@ import ServicesPage from './components/pages/Services/ServicePage';
 import AboutPage from './components/pages/Aboutus/About';
 import Contactus from './components/pages/contactus/contactus';
 import PrivacyPolicy from './components/pages/privacypolicy/PrivacyPolicy';
-
+import Blog from './components/pages/Blog/Blog'
+import { BlogDetailPage } from './components/pages/Blog/BlogDetailPage';
 function AppContent() {
   const location = useLocation();
   const isServicesPage = location.pathname.startsWith('/services');
@@ -46,6 +47,11 @@ function AppContent() {
         <Route path="/aboutus" element={<AboutPage />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
+
+
+        
       </Routes>
       <Footer />
     </div>
