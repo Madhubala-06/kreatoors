@@ -307,10 +307,10 @@ const ServiceSection = ({
         return (
             <section
                 ref={sectionRef}
-                className="impact-section py-16 px-4 md:px-8 w-full bg-white overflow-hidden"
+                className="impact-section py-10 px-4 md:px-8 w-full bg-white overflow-hidden"
             >
                 <div className="container mx-auto max-w-6xl">
-                    <div className="arrow flex justify-center mb-8  h-60">
+                    <div className="arrow flex justify-center   h-48">
                         <img src={arrow} className="  py-10" alt="Arrow" />
                     </div>
 
