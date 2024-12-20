@@ -1,13 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RightArrow from '../../../assets/images/Arrow 1.svg';
-import { collection, addDoc, serverTimestamp, db } from '../../../firebase';
+import { collection, addDoc, serverTimestamp , db } from '../../../firebase';
+import axios from 'axios';
 
 const ComingSoonSection = ({ isAboutUs }) => {
+  const [email, setEmail] = useState('');
+  const MAILCHIMP_URL = 'https://mandrillapp.com/api/1.0/messages/send-template.json'; 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (email) {
+      try {
+        await addDoc(collection(db, 'JoinWaitlist'), {
+          email: email,
+          timestamp: serverTimestamp(),
+        });
+       console.log( process.env.REACT_APP_MAILCHIMP_API_KEY);
+       
+        const data = {
+          key: process.env.REACT_APP_MAILCHIMP_API_KEY,
+          template_name: 'Kreatoors Template', 
+          template_content: [],
+          message: {
+            to: [{ email: email, type: 'to' }],
+            from_email: 'hello@kreatoors.com',
+            from_name: 'Kreatoors',
+            subject: 'Welcome to the Waitlist!',
+            text: 'Thank you for joining our waitlist!',
+          },
+        };
+
+        await axios.post(MAILCHIMP_URL, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        
+        setEmail('');
+        alert('Added successfully! Check your email for confirmation.');
+      } catch (error) {
+        console.error('Error subscribing:', error);
+        alert('There was an error, please try again later.');
+      }
+    }
+  };
+
   return (
     <div
-      className={`w-full ${
-        isAboutUs ? 'bg-cta-gradient' : 'bg-white'
-      } py-20 px-4 md:px-8 rounded-t-[50px]`}
+      className={`w-full ${isAboutUs ? 'bg-cta-gradient' : 'bg-white'
+        } py-20 px-4 md:px-8 rounded-t-[50px]`}
     >
       <div className="max-w-6xl mx-auto">
         <div className="relative bg-primary-gradient rounded-3xl p-8 md:p-12 flex md:gap-10">
@@ -26,12 +69,14 @@ const ComingSoonSection = ({ isAboutUs }) => {
 
             <div className="flex flex-col sm:flex-row items-center">
               <form
-                action="mailto:hello@kreatoors.com"
+                onSubmit={handleSubmit}
                 className="flex justify-between md:w-3/4 items-center gap-4 mb-4 sm:mb-0 bg-[#9794D8] px-2 pl-4 py-2 rounded-full"
               >
                 <input
-                  type="text"
-                  name="text"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Join the Waitlist Now"
                   className="bg-transparent w-4/5 text-white placeholder-white outline-none border-none focus:ring-0 focus:outline-none"
                   required

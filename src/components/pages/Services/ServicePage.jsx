@@ -391,7 +391,7 @@ const ServicesPage = () => {
     const serviceData = servicesData[index];
 
     if (serviceData) {
-      return <ServiceSection {...serviceData} />;
+      return <ServiceSection {...serviceData} index={index} />;
     }
 
     return (

@@ -15,13 +15,15 @@ import plus from '../../../assets/images/plus.png'
 import minus from '../../../assets/images/minus.png'
 
 const ServiceSection = ({
+
     h1,
     description,
     heroImage,
     coreServices,
     buttontxt,
     impactItems,
-    ctaTitle
+    ctaTitle,
+    index
 
 }) => {
     const [openSection, setOpenSection] = useState(coreServices[0]?.id || '');
@@ -55,11 +57,9 @@ const ServiceSection = ({
 
 
         <section className="py-10 px-4 md:px-6 lg:px-8 ">
-            <div className="container mx-auto max-w-6xl ">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    {/* Left Column */}
-                    <div className="space-y-10">
-                        {/* Text Div */}
+            <div className="container mx-auto max-w-6xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                    <div className="flex flex-col justify-between space-y-10">
                         <div
                             className={`space-y-10 lg:pr-8 ${!hasAnimated ? 'animate-slideInFromTop' : ''}`}
                             style={{
@@ -71,10 +71,8 @@ const ServiceSection = ({
                                 {description}
                             </p>
                         </div>
-
-                        {/* Image Div */}
                         <div
-                            className={`relative mr-10 ${!hasAnimated ? 'animate-slideInFromBottom' : ''}`}
+                            className={`relative mr-10  ${!hasAnimated ? 'animate-slideInFromBottom' : ''}`}
                             style={{
                                 animation: !hasAnimated ? "slideInFromBottom 1s ease-out" : "none",
                             }}
@@ -82,17 +80,15 @@ const ServiceSection = ({
                             <img
                                 src={heroImage}
                                 alt={description}
-                                className="w-full h-auto object-cover rounded-xl"
+                                className={`w-full  object-cover rounded-xl ${(index == 1 || index == 3) ? "   h-72 " : "h-full"}`}
                                 style={{
                                     boxShadow: "16px 16px 0px 0px rgba(219, 216, 246, 1)",
                                 }}
                             />
                         </div>
                     </div>
-
-                    {/* Right Column */}
-                    <div className='flex flex-col justify-between'>
-                        <div className="space-y-6 pb-6">
+                    <div className="flex flex-col  justify-between">
+                        <div className="space-y-6 pb-6 ">
                             {coreServices.map((service) => (
                                 <div
                                     key={service.id}
@@ -104,28 +100,22 @@ const ServiceSection = ({
                                     >
                                         <span className="text-lg font-medium text-gray-900">{service.title}</span>
                                         {openSection === service.id ? (
-
-                                            <img src={minus} className=' h-6 w-6'></img>
+                                            <img src={minus} className="h-6 w-6" alt="Collapse icon" />
                                         ) : (
-
-                                            <img src={plus} className=' h-6 w-6'></img>
+                                            <img src={plus} className="h-6 w-6" alt="Expand icon" />
                                         )}
                                     </button>
-
                                     <div
                                         className={`grid transition-all duration-200 ease-in-out ${openSection === service.id ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                                     >
                                         <div className="overflow-hidden">
-                                            <p className='pb-4 text-sub-gray px-10'>{service.description}</p>
-
+                                            <p className="pb-4 text-sub-gray px-10">{service.description}</p>
                                             {service.content && (
                                                 <div className="px-10 pb-6 space-y-2">
                                                     {service.content.map((item, index) => (
-                                                        <div key={index} className="flex  max-w-lg  md:max-w-sm">
+                                                        <div key={index} className="flex max-w-lg md:max-w-sm">
                                                             <span className="text-sub-gray mr-2">•</span>
-                                                            <p className="text-sub-gray">
-                                                                {item}
-                                                            </p>
+                                                            <p className="text-sub-gray">{item}</p>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -135,13 +125,14 @@ const ServiceSection = ({
                                 </div>
                             ))}
                         </div>
-                        <button onClick={handleClick} className="w-full py-3 px-6 bg-primary-gradient text-white rounded-full transition-all duration-300 transition-all duration-700 ease-out delay-400
-                               hover:scale-105">
+                        <button
+                            onClick={handleClick}
+                            className="w-full py-3 px-6 bg-primary-gradient text-white rounded-full transition-all duration-300 hover:scale-105"
+                        >
                             {buttontxt}
                         </button>
                     </div>
                 </div>
-
             </div>
         </section>
     );
@@ -208,30 +199,31 @@ const ServiceSection = ({
         }, []);
 
         return (
+
+
+
+
             <div className="w-full py-16 bg-blue-custom-400">
                 <div className={`mx-auto px-4  `}>
                     <h2 className="text-4xl mb-12 text-center">
                         Other <span className="font-playfair italic ">Services</span>
                     </h2>
 
-                    <div className="relative">
-
-                        <div
-                            ref={scrollContainerRef}
-                            className={`flex gap-6 overflow-x-auto hide-scrollbar transition-all duration-300 ${isScrolling ? 'md:ml-0' : ' ml-0 xl:ml-48  '}`}
-                        >
-
-                            {otherServices.map((service) => (
-
-                                <div className="flex-none w-[460px] group" onClick={() => {
-                                    window.scrollTo({
-                                        top: 0,
-                                        behavior: 'instant'
-                                    });
-                                    navigate(service.link);
-                                }}>
-
-                                    <div className="overflow-hidden" >
+                    <div className="relative overflow-hidden">
+                        <div className={`flex gap-6 animate-marquee`}>
+                            {[...otherServices, ...otherServices].map((service, index) => (
+                                <div
+                                    key={index}
+                                    className="flex-none w-[460px] group"
+                                    onClick={() => {
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: 'instant',
+                                        });
+                                        navigate(service.link);
+                                    }}
+                                >
+                                    <div className="overflow-hidden">
                                         <div className="relative h-[300px] overflow-hidden">
                                             <img
                                                 src={service.image}
@@ -242,32 +234,42 @@ const ServiceSection = ({
                                         <div className="py-7">
                                             <div className="flex justify-between">
                                                 <h3 className="text-xl font-normal">{service.title}</h3>
-                                                <div className="shadow-lg p-2 cursor-pointer rounded-full w-12 h-12 flex items-center justify-center bg-white">
+                                                <div className="shadow-lg p-2 cursor-pointer rounded-full w-12 h-12 flex items-center justify-center bg-white 
+                                transition-transform duration-300 transform hover:scale-110 hover:bg-blue-custom-100"
+                                                >
                                                     <ArrowUpRight className="text-blue-custom-700 h-7 w-7" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
                             ))}
-
-
                         </div>
-
                     </div>
+
+                    <style jsx>{`
+    .animate-marquee {
+        display: flex;
+        animation: marquee 50s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .relative.overflow-hidden > .animate-marquee {
+        width: calc(200% + 1px); 
+    }
+`}</style>
+
                 </div>
 
-                <style jsx>{`
-                    .hide-scrollbar {
-                        -ms-overflow-style: none;
-                        scrollbar-width: none;
-                    }
-                    .hide-scrollbar::-webkit-scrollbar {
-                        display: none;
-                    }
-                `}</style>
+
             </div>
         );
     };
@@ -308,8 +310,8 @@ const ServiceSection = ({
                 className="impact-section py-16 px-4 md:px-8 w-full bg-white overflow-hidden"
             >
                 <div className="container mx-auto max-w-6xl">
-                    <div className="arrow flex justify-center mb-8">
-                        <img src={arrow} className="h-72 py-10" alt="Arrow" />
+                    <div className="arrow flex justify-center mb-8  h-60">
+                        <img src={arrow} className="  py-10" alt="Arrow" />
                     </div>
 
                     <div className="content">

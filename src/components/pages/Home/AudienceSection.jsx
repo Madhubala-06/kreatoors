@@ -92,20 +92,21 @@ const AudienceSection = () => {
           Who Do We <span className="font-playfair italic  ">Empower?</span>
         </h1>
 
-        <div className="flex sm:flex-wrap flex-row justify-evenly   my-10  bg-blue-custom-400 py-4 px-3 rounded-full">
-          {Object.keys(tabContent).map((tab) => (
-            <button
-              key={tab}
-              onClick={() => handleTabChange(tab)}
-              className={`px-4 py-3.5 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 ${activeTab === tab
-                ? 'bg-primary-gradient text-white '
-                : 'text-black hover:bg-gray-200'
-                }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+        <div className="flex sm:flex-col md:flex-row flex-wrap justify-evenly my-10 md:bg-blue-custom-400 py-4 px-3 rounded-full">
+  {Object.keys(tabContent).map((tab) => (
+    <button
+      key={tab}
+      onClick={() => handleTabChange(tab)}
+      className={`px-4 py-3.5 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 ${activeTab === tab
+        ? 'bg-primary-gradient text-white'
+        : 'text-black hover:bg-gray-200'
+        }`}
+    >
+      {tab}
+    </button>
+  ))}
+</div>
+
 
         <div className="relative">
           <div
