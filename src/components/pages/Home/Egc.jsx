@@ -7,11 +7,11 @@ const Section = ({ title, description, impacts, image, reverse, bgColor }) => {
     <div className={`flex flex-col lg:flex-row  justify-evenly  items-center  md:py-10 ${bgColor} rounded-2xl`}>
       {reverse && (
         <div className="lg:w-2/5 order-2 lg:order-1">
-          <img src={image} alt={title} className="rounded-lg w-full object-cover" />
+          <img src={image} alt={title} className="rounded-lg w-full object-cover p-10 lg:p-0" />
         </div>
       )}
 
-      <div className={` ${reverse ? 'lg:w-1/2 order-1 lg:order-2' : 'max-w-[560px]'}`}>
+      <div className={` ${reverse ? 'lg:w-1/2 order-1 lg:order-2 p-10 lg:p-0' : 'lg:max-w-[560px] p-10 lg:p-0'} `}>
         <p className="text-gray-700 mb-6">{description}</p>
         <div className="space-y-2">
           <h3 className="text-blue-custom-600 font-medium mb-3">Impact:</h3>
@@ -35,7 +35,7 @@ const Section = ({ title, description, impacts, image, reverse, bgColor }) => {
 
       {!reverse && (
         <div className="lg:w-2/5">
-          <img src={image} alt={title} className="rounded-lg w-full object-cover" />
+          <img src={image} alt={title} className="rounded-lg w-full object-cover p-10 lg:p-0" />
         </div>
       )}
     </div>
