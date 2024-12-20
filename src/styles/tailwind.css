@@ -28,6 +28,16 @@
     animation: marqueeLeft 80s linear infinite;
 }
 
+@media screen and (max-width: 768px) {
+    .animate-marquee-right {
+        animation: marqueeRight 30s linear infinite; 
+    }
+
+    .animate-marquee-left {
+        animation: marqueeLeft 30s linear infinite;
+    }
+}
+
 @keyframes slideInFromTop {
     0% {
         opacity: 0;
