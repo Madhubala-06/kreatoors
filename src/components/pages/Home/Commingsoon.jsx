@@ -27,8 +27,6 @@ const ComingSoonSection = ({ isAboutUs }) => {
             <div className="flex flex-col sm:flex-row items-center">
               <form
                 action="mailto:hello@kreatoors.com"
-                method="post"
-                enctype="text/plain"
                 className="flex justify-between md:w-3/4 items-center gap-4 mb-4 sm:mb-0 bg-[#9794D8] px-2 pl-4 py-2 rounded-full"
               >
                 <input
