@@ -100,7 +100,7 @@ const ComingSoonSection = ({ isAboutUs }) => {
                 transformOrigin: 'center',
               }}
             />
-            <div className="flex items-center gap-2 w-auto ml-20 font-semibold text-blue-custom-700 bg-white px-4 py-3 rounded-full">
+            <div className="flex  transition-all duration-700 ease-out hover:scale-105  items-center gap-2 w-auto ml-20 font-semibold text-blue-custom-700 bg-white px-4 py-3 rounded-full">
               <span className="">Check</span>
               <a
                 href="https://kreatoors.ai"
