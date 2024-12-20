@@ -81,7 +81,7 @@ export default function Header({ isServices }) {
                       </svg>
                     </button>
                     {isServicesHovered && (
-                      <div className="absolute top-full  md:-left-40  w-[40rem] bg-white rounded-2xl shadow-xl py-4 grid grid-cols-2 gap-4">
+                      <div className="absolute top-full  md:-left-40  w-[35rem] bg-white rounded-2xl shadow-xl  p-4 grid grid-cols-2 gap-3">
                         {servicesDropdownItems.map((subItem) => (
                           <NavLink
                             key={subItem.path}
