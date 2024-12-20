@@ -1,7 +1,4 @@
-
-
 import React, { useMemo } from 'react';
-
 
 import one from '../../../assets/images/grid-images/Frame 1597884900.png';
 import two from '../../../assets/images/grid-images/Frame 1597884897.png';
@@ -38,7 +35,6 @@ import twentytwo from '../../../assets/images/grid-images/Frame 1597884906.png';
 
 import twentythree from '../../../assets/images/grid-images/Frame 1597884905.png';
 import twentyfour from '../../../assets/images/grid-images/Frame 1597884872.png';
-
 
 const importImages = {
   one: one,
@@ -90,34 +86,22 @@ const SlidingImages = () => {
   const imageRows = useMemo(() => {
     const images = Object.values(importImages);
     return [
-      images.slice(0, 8),
-      images.slice(8, 16),
-      images.slice(16, 24)
+      images.slice(0, 12), 
+      images.slice(12, 24), 
     ];
   }, []);
-
-  const redistributedRows = useMemo(() => {
-    const allImages = imageRows.flat();
-    const halfLength = Math.ceil(allImages.length / 2);
-    return [
-      allImages.slice(0, halfLength),
-      allImages.slice(halfLength)
-    ];
-  }, [imageRows]);
 
   return (
     <div className="w-full overflow-hidden">
       <div className="block">
-        {redistributedRows.map((row, index) => (
+        {imageRows.map((row, index) => (
           <ImageRow
-            key={`redistributed-${index}`}
+            key={`row-${index}`}
             images={row}
             direction={index % 2 === 0 ? 'right' : 'left'}
           />
         ))}
       </div>
-
-  
     </div>
   );
 };
