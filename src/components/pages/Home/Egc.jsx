@@ -4,14 +4,14 @@ import Egc2 from '../../../assets/images/egc2.png';
 
 const Section = ({ title, description, impacts, image, reverse, bgColor }) => {
   return (
-    <div className={`flex flex-col lg:flex-row gap-8 justify-evenly items-center p-5 md:p-0 ${bgColor} rounded-2xl`}>
+    <div className={`flex flex-col lg:flex-row  justify-evenly  items-center  md:py-10 ${bgColor} rounded-2xl`}>
       {reverse && (
         <div className="lg:w-2/5 order-2 lg:order-1">
           <img src={image} alt={title} className="rounded-lg w-full object-cover" />
         </div>
       )}
 
-      <div className={`py-10 ${reverse ? 'lg:w-1/2 order-1 lg:order-2' : 'max-w-[560px]'}`}>
+      <div className={` ${reverse ? 'lg:w-1/2 order-1 lg:order-2' : 'max-w-[560px]'}`}>
         <p className="text-gray-700 mb-6">{description}</p>
         <div className="space-y-2">
           <h3 className="text-blue-custom-600 font-medium mb-3">Impact:</h3>
@@ -35,7 +35,7 @@ const Section = ({ title, description, impacts, image, reverse, bgColor }) => {
 
       {!reverse && (
         <div className="lg:w-2/5">
-          <img src={image} alt={title} className="rounded-lg w-full object-cover p-5 sm:p-10" />
+          <img src={image} alt={title} className="rounded-lg w-full object-cover" />
         </div>
       )}
     </div>
@@ -48,7 +48,7 @@ const EGCSection = () => {
       {/* EGC Section */}
       <div className="w-full bg-blue-custom-400 py-20">
         <section className="max-w-6xl rounded-2xl px-8 lg:px-8 mx-auto">
-          <h2 className="text-3xl lg:text-4xl mb-8">
+          <h2 className="text-3xl lg:text-4xl mb-12">
             What's <span className="font-playfair">Employee Generated Content (EGC)?</span>
           </h2>
           <Section
@@ -70,7 +70,7 @@ const EGCSection = () => {
       {/* Corporate Influencing Section */}
       <div className="bg-white py-20">
         <section className="rounded-2xl px-8 lg:px-8 max-w-6xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl mb-8">
+          <h2 className="text-3xl lg:text-4xl mb-12">
             What is <span className="font-playfair">Corporate Influencing?</span>
           </h2>
           <Section
