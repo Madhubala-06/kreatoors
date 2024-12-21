@@ -29,17 +29,19 @@ const blogs = [
         image: one,
     },
     {
-        id: "employee-to-brand-mmbassador",
+        id: "hr-ecosystem",
         title: "Content Creation – A Superpower in the HR Ecosystem",
         date: "November 19, 2024",
         image: two,
     },
     {
+        id: "covid-changed-internal-communication",
         title: "The Hidden Cost of Hybrid: Covid changed Internal Communication",
         date: "August 8, 2024",
         image:  three,
     },
     {
+        id :"ai-vs-authenticity",
         title: "AI vs. Authenticity: Why Human Stories Matter More Than Ever in Brand Building",
         date: "November 19, 2024",
         image: four,
@@ -51,6 +53,7 @@ const blogs = [
         image: five,
     },
     {
+        id:"employee-winning",
         title: "5 Companies Winning at Employee-Generated Content (And What We Can Learn)",
         date: "November 19, 2024",
         image: six,
@@ -58,6 +61,7 @@ const blogs = [
 
 
     {
+        id:"corporate-voice",
         title: "Personal Brand or Corporate Voice? How to Strike the Perfect Balance ",
         date: "November 19, 2024",
         image: seven,
@@ -65,11 +69,13 @@ const blogs = [
 
 
     {
+        id :"content-creation",
         title: "Content Creation Made Simple: A Guide for Busy Professionals ",
         date: "November 19, 2024",
         image: eight,
     },
     {
+        id:"employee-sharing-content",
         title: "Beyond LinkedIn: Where and How Your Employees Should Share Their Stories ",
         date: "November 19, 2024",
         image: nine,
@@ -77,13 +83,15 @@ const blogs = [
 
 
     {
+        id :"corporate-influencing",
         title: "    The Future of Corporate Influence: Why Employee Voices Are Your Secret Weapon ",
         date: "November 19, 2024",
         image: ten,
     },
 
 
-    {
+    {  
+        id:"create-culture",
         title: "Creating a Culture of Sharing: How to Encourage Employee Content Creation ",
         date: "November 19, 2024",
         image:eleven,
@@ -122,7 +130,6 @@ const BlogPage = () => {
                                         className="w-full h-52 object-cover rounded-lg"
                                     />
                                     <div className="p-4">
-                                        <p className="text-sm  text-sub-gray">{blog.date}</p>
                                         <h2 className="text-lg  font-medium  mt-2">{blog.title}</h2>
                                     </div>
                                 </div>

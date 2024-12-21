@@ -84,16 +84,6 @@ const JoinOurTeam = () => {
     { code: '+81', country: 'Japan' }
   ];
 
-  const roleOptions = [
-    { value: '', label: 'Role of Interest' },
-    { value: 'frontend', label: 'Frontend Developer' },
-    { value: 'backend', label: 'Backend Developer' },
-    { value: 'fullstack', label: 'Full Stack Developer' },
-    { value: 'qa', label: 'Quality Assurance Engineer' },
-    { value: 'research', label: 'Research Engineer' },
-    { value: 'devops', label: 'DevOps Engineer' },
-    { value: 'ui-ux', label: 'UI/UX Designer' }
-  ];
 
   const handleFileClick = () => {
     document.getElementById('resumeUpload').click();
@@ -221,18 +211,18 @@ const JoinOurTeam = () => {
               />
             </div>
 
-            <select
-  className="w-full p-3 rounded-lg bg-white text-sub-gray" 
-  value={formData.role}
-  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-  required
->
-  {roleOptions.map((role) => (
-    <option key={role.value} value={role.value} className="text-sub-gray"> 
-      {role.label}
-    </option>
-  ))}
-</select>
+
+
+
+            <input
+                type="text"
+                placeholder="Role of Interest"
+                className="w-full p-3 bg-white text-sub-gray rounded-lg"
+                value={formData.role}
+                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                required
+              />
+            
 
 
             <textarea
@@ -283,9 +273,10 @@ const JoinOurTeam = () => {
               />
               <label htmlFor="agree" className="text-sm text-sub-gray">
                 I agree to the
+                <a href='/privacypolicy' target='_blank'>
                 <span className="font-bold text-blue-custom-600 px-1">Privacy Policy</span>
-                and
-                <span className="font-bold text-blue-custom-600 px-1">Terms and Conditions</span> .
+                  </a>
+                
               </label>
             </div>
 
