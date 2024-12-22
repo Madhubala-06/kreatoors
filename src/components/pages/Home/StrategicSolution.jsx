@@ -65,7 +65,7 @@ const BrandSolutionsLanding = () => {
   };
 
   return (
-    <div className=" bg-blue-custom-400 py-20 px-5 md:px-0">
+    <div className=" bg-blue-custom-400 py-20 px-5 md:px-0" id="strategic-solutions">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl mb-6 mx-auto text-center">
