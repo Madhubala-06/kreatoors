@@ -30,7 +30,7 @@ const Stats = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {stats.map((stat, index) => (
-          <div key={index} className="text-start bg-white p-4  rounded-r-3xl">
+          <div key={index} className="text-start bg-white p-4   rounded-tr-3xl">
             <div className="text-transparent bg-clip-text bg-primary-gradient text-4xl  font-semibold  mb-4">
               {stat.multiplier}
             </div>
