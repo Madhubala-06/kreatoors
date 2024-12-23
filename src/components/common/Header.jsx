@@ -1,7 +1,7 @@
 'use client';
 import Button from "./Button";
 import { NavLink, useLocation } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState ,useRef , useEffect } from 'react';
 import Logo from "./Logo";
 
 import clarity_employee from '../../assets/images/strategic-solution/clarity_employee-solid.png';
@@ -25,11 +25,23 @@ export default function Header({ isServices }) {
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const location = useLocation();
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+        setIsMobileServicesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
   const menuItems = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '#' },
@@ -46,7 +58,7 @@ export default function Header({ isServices }) {
   };
 
   return (
-    <header className="absolute top-10 left-0 right-0 z-50 max-w-6xl mx-5 md:mx-10 lg:mx-10 xl:mx-auto">
+    <header className="absolute top-10 left-0 right-0 z-50 max-w-6xl mx-5 md:mx-10 lg:mx-10 xl:mx-auto" ref={menuRef}>
       <nav className="flex items-center justify-between py-3.5 md:py-5 px-5 bg-white rounded-full">
         <div className="flex items-center space-x-12">
           <Logo />
@@ -149,74 +161,80 @@ export default function Header({ isServices }) {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-white rounded-b-2xl">
-          <div className="px-5 py-4 space-y-3 mt-4">
-            {menuItems.map((item, index) => (
-              item.name === 'Services' ? (
-                <div key={index}>
-                  <button
-                    onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                    className="flex items-center justify-between w-full text-gray-600 py-2"
-                  >
-                    <span>{item.name}</span>
-                    <svg
-                      className={`w-4 h-4 transform transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  {isMobileServicesOpen && (
-                    <div className="mt-2 space-y-2">
-                      {servicesDropdownItems.map((subItem) => (
-                        <NavLink
-                          key={subItem.path}
-                          to={subItem.path}
-                          className={({ isActive }) =>
-                            `flex items-center space-x-3 px-4 py-2 text-sm rounded-lg ${isActive || location.pathname === subItem.path
-                              ? 'text-[#6B5B95] bg-purple-50'
-                              : 'text-gray-600 hover:bg-purple-50 hover:text-[#6B5B95]'
-                            }`
-                          }
-                        >
-                          <div className="bg-blue-custom-400 p-3 rounded-full">
-                            <img src={subItem.icon} className="w-6 h-6" />
-                          </div>
-                          <span>{subItem.name}</span>
-                        </NavLink>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <NavLink
-                  key={index}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `block py-2 ${isActive
-                      ? 'text-[#6B5B95]'
-                      : 'text-gray-600 hover:text-[#6B5B95]'
-                    }`
-                  }
-                >
-                  {item.name}
-                </NavLink>
-              )
-            ))}
-
-            <a
-              href="https://calendly.com/coachingwitharzo/free-discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-primary-gradient text-white px-6 py-3 rounded-full text-center hover:bg-[#5A4A84] transition-all duration-300 font-medium mt-4"
+  <div className="xl:hidden bg-white rounded-b-2xl">
+    <div className="px-5 py-4 space-y-3 mt-4">
+      {menuItems.map((item, index) => (
+        item.name === 'Services' ? (
+          <div key={index}>
+            <button
+              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+              className="flex items-center justify-between w-full text-gray-600 py-2"
             >
-              Book Free Discovery Call
-            </a>
+              <span>{item.name}</span>
+              <svg
+                className={`w-4 h-4 transform transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {isMobileServicesOpen && (
+              <div className="mt-2 space-y-2">
+                {servicesDropdownItems.map((subItem) => (
+                  <NavLink
+                    key={subItem.path}
+                    to={subItem.path}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsMobileServicesOpen(false);
+                    }}
+                    className={({ isActive }) =>
+                      `flex items-center space-x-3 px-4 py-2 text-sm rounded-lg ${isActive || location.pathname === subItem.path
+                        ? 'text-[#6B5B95] bg-purple-50'
+                        : 'text-gray-600 hover:bg-purple-50 hover:text-[#6B5B95]'
+                      }`
+                    }
+                  >
+                    <div className="bg-blue-custom-400 p-3 rounded-full">
+                      <img src={subItem.icon} className="w-6 h-6" />
+                    </div>
+                    <span>{subItem.name}</span>
+                  </NavLink>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        ) : (
+          <NavLink
+            key={index}
+            to={item.path}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={({ isActive }) =>
+              `block py-2 ${isActive
+                ? 'text-[#6B5B95]'
+                : 'text-gray-600 hover:text-[#6B5B95]'
+              }`
+            }
+          >
+            {item.name}
+          </NavLink>
+        )
+      ))}
+      
+      <a
+        href="https://calendly.com/coachingwitharzo/free-discovery-call"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => setIsMobileMenuOpen(false)}
+        className="block w-full bg-primary-gradient text-white px-6 py-3 rounded-full text-center hover:bg-[#5A4A84] transition-all duration-300 font-medium mt-4"
+      >
+        Book Free Discovery Call
+      </a>
+    </div>
+  </div>
+)}
     </header>
   );
 }
