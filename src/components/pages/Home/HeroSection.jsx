@@ -28,10 +28,10 @@ export default function Hero({ onCTAClick }) {
           personal branding, corporate influencing and AI-powered solutions.          </p>
 
           <div className="flex flex-col md:flex-row gap-4 pt-5 justify-center">
-            <Button onClick={onCTAClick} className="  transition-all duration-700 ease-out delay-400
-                               hover:scale-105 ">Explore Our Services</Button>
-            <button  onClick={handleClick} className="group p-4 flex items-center border-2 text-blue-custom-700 border-blue-custom-800 justify-center px-6 py-4 rounded-full font-medium transition-all duration-300">
-              <span className="mr-2">Contact Us</span>
+            <Button onClick={handleClick} className="  transition-all duration-700 ease-out delay-400
+                               hover:scale-105 ">Book a Free Audit </Button>
+            <button  onClick={onCTAClick} className="group p-4 flex items-center border-2 text-blue-custom-700 border-blue-custom-800 justify-center px-6 py-4 rounded-full font-medium transition-all duration-300">
+              <span className="mr-2">Explore Our Services</span>
               <p className="inline-block transform group-hover:translate-x-1 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right">
                   <path d="M5 12h14" />

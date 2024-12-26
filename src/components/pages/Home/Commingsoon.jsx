@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import RightArrow from '../../../assets/images/Arrow 1.svg';
-import { collection, addDoc, serverTimestamp , db } from '../../../firebase';
+import { collection, addDoc, serverTimestamp, db } from '../../../firebase';
 import axios from 'axios';
 
 const ComingSoonSection = ({ isAboutUs }) => {
   const [email, setEmail] = useState('');
-  const MAILCHIMP_URL = 'https://mandrillapp.com/api/1.0/messages/send-template.json'; 
+  const MAILCHIMP_URL = 'https://mandrillapp.com/api/1.0/messages/send-template.json';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,11 +16,10 @@ const ComingSoonSection = ({ isAboutUs }) => {
           email: email,
           timestamp: serverTimestamp(),
         });
-       console.log( process.env.REACT_APP_MAILCHIMP_API_KEY);
-       
+
         const data = {
           key: process.env.REACT_APP_MAILCHIMP_API_KEY,
-          template_name: 'Kreatoors Template', 
+          template_name: 'Kreatoors Template',
           template_content: [],
           message: {
             to: [{ email: email, type: 'to' }],
@@ -37,7 +36,7 @@ const ComingSoonSection = ({ isAboutUs }) => {
           },
         });
 
-        
+
         setEmail('');
         alert('Added successfully! Check your email for confirmation.');
       } catch (error) {

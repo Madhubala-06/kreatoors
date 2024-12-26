@@ -16,8 +16,8 @@ const BrandSolutionsLanding = () => {
   const solutions = [
     {
       id: 1,
-      title: "Personal Branding & Corporate Influencing",
-      buttonText: "Start Your Brand Journey",
+      title: "Corporate Influencing",
+      buttonText: "Become a Thought Leader",
       icon: arrow_growth
     },
     {
@@ -46,8 +46,8 @@ const BrandSolutionsLanding = () => {
     },
     {
       id: 6,
-      title: `COMING SOON: AI-Powered Platform`,
-      buttonText: "Join the Waitlist",
+      title: `Personal Branding`,
+      buttonText: "Enhance Your Presence",
       icon: ai_powered_ecg
     }
   ];
@@ -68,9 +68,10 @@ const BrandSolutionsLanding = () => {
     <div className=" bg-blue-custom-400 py-20 px-5 md:px-0" id="strategic-solutions">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-6 mx-auto text-center">
-            Services & Solutions To
-            <span className="block mt-3">
+          <h2 className="text-4xl md:text-5xl mb-6 mx-auto text-center ">
+          Our
+          <span className="font-playfair italic ml-3">Services</span> 
+            <span className="block mt-3 text-2xl ">
               <span className="font-playfair italic">Amplify</span> Your
               <span className="font-playfair italic"> Brand</span> and Culture
             </span>
@@ -81,10 +82,10 @@ const BrandSolutionsLanding = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:mx-5 gap-6">
           {solutions.map((solution) => {
 
-            const formattedTitle = solution.id === 6
-              ? solution.title.split(':').map((part, index) => (
+            const formattedTitle = solution.id === 6 || solution.id === 1
+              ? solution.title.split(' ').map((part, index) => (
                 <React.Fragment key={index}>
-                  {index === 0 ? <>{part}:<br /></> : part}
+                  {index === 0 ? <>{part}<br /></> : part}
                 </React.Fragment>
               ))
               : solution.title;
