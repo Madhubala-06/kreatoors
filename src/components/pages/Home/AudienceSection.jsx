@@ -26,7 +26,7 @@ const AudienceSection = () => {
         'Communications Integration: Align internal and external messaging',
         'Platform Optimization: Leverage technology for scalable engagement'
       ],
-      ctaText: 'Book Free Consultation'
+      ctaText: 'Book a Free Audit'
     },
 
 
@@ -143,7 +143,7 @@ const AudienceSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-               Book Free Consultation
+               Book a Free Audit
               </a>
 
             </button>
